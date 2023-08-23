@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('first_name', 50);
-            $table->string('mail', 50)->unique();
+            $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
             $table->char('phone_number', 10);
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreignId('role_id')->default(1)->constrained();
+            $table->foreignId('role_id')->constrained();
         });
     }
 

@@ -11,24 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('article', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('gamme_id')->constrained();
             $table->string('name', 75);
             $table->string('ingredients', 255);
             $table->string('allergens', 100);
             $table->string('image', 50);
             $table->float('price');
-            $table->boolean('month_pizza');
+            $table->boolean('highlighte');
             $table->timestamps();
+
+            $table->foreignId('gamme_id')->constrained();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('article');
     }
 };
