@@ -20,7 +20,8 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Tradition insulaire en fines bouchées savoureuses',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 7,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 4
         ]);
 
         Article::create([
@@ -29,7 +30,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 5,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 4
         ]);
 
         Article::create([
@@ -37,25 +39,28 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Mortadelle de sanglier, truffe',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 7,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 4
         ]);
 
         //PIZZA NAPOLETANA
         Article::create([
             'name' => 'Marinara',
-            'ingredients' => 'Tomates, tomates confites, ail, basilic frais, huile d’olive, origan, parmesan',
+            'ingredients' => 'Sauce tomate, tomates confites, ail, basilic frais, huile d’olive, origan, parmesan',
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 10,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Red hot pizza peppers',
-            'ingredients' => 'Tomates, spianata piccante, parmesan , basilic et huile d\'olive',
+            'ingredients' => 'Sauce tomate, spianata piccante, parmesan , basilic et huile d\'olive',
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 15,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Ortolana',
@@ -63,7 +68,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 16,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Miss piggy',
@@ -71,7 +77,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 17,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 1
         ]);
         Article::create([
             'name' => 'C\'est la truffance',
@@ -79,7 +86,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 21,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Azerty',
@@ -87,7 +95,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 18,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Verratti burrata végétarienne',
@@ -95,7 +104,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 18,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Margherita DOP',
@@ -103,7 +113,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 18,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Puissance 4',
@@ -111,14 +122,16 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 15,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 1
         ]);
         Article::create([
             'name' => 'La reine de ton coeur',
             'ingredients' => 'Crème de parmesan, fior di latte, gorgonzola, provolone, huile d\'olive et basilic',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 14,
-            // 'gamme_id' => 
+            'highlighted'=> true,
+            'gamme_id' => 1
         ]);
         Article::create([
             'name' => 'Verratti burrata',
@@ -126,7 +139,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 18,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Sexy calzedonia',
@@ -134,7 +148,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 16,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
         Article::create([
             'name' => 'Bambino',
@@ -142,7 +157,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 10,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 2
         ]);
 
         //PANUOZZO
@@ -152,7 +168,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 10.50,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 3
         ]);
         Article::create([
             'name' => 'Panuozzo puissance 4 patate',
@@ -160,7 +177,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 10.50,
-            // 'gamme_id' => 
+            'highlighted'=> true,
+            'gamme_id' => 3
         ]);
 
         //SOFT
@@ -169,35 +187,40 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 4,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 6
         ]);
         Article::create([
             'name' => 'Orange',
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 4,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 6
         ]);
         Article::create([
             'name' => 'Mandarine',
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 4,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 6
         ]);
         Article::create([
             'name' => 'San pellegrino',
             'ingredients' => 'Eau Gazeuses 50cl',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 2,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 6
         ]);
         Article::create([
             'name' => 'Eau plate',
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 2,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 6
         ]);
 
         //VINO & BIRRA
@@ -206,93 +229,88 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Blanc sec fruité 75cl',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 16,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Lambrusco Rosso secco Emilia IGT',
             'ingredients' => 'Sec!',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 13,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Lambrusco Rosso Amabile Emilia IGT',
             'ingredients' => 'Gourmand!',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 13,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Prosecco Rosato presa n°3',
             'ingredients' => 'Gourmand!',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 19,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Luccarelli',
             'ingredients' => 'Vin rouge des Pouilles Un peu de puissance, solaire, gourmand !',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 18,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Tignanello 2015',
             'ingredients' => 'Famille Antinori, vin depuis 1385. Tignanello, révolutionnaire : Sangiovese en fût, mélange moderne, tanins vifs. Tignanello 2015 : riche, vibrant, complexe.',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 190,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Otello nero lambrusco secco Emilia IGT',
             'ingredients' => 'Incomparable!',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 15,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Etna A rina 201 Girolamo Russo',
             'ingredients' => 'La classe et l\'élégance Sicilienne ! Cépages: nerello mascalese 94%, nerello cappuccio 6%!',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 43,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Etna Rosso Doc 2017',
             'ingredients' => 'La classe et l\'élégance Sicilienne ! Cépages: nerello mascalese 100%',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 88,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Bière Poretti',
             'ingredients' => '33cl Blonde italienne',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 88,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
         Article::create([
             'name' => 'Barbera d\'Alba',
             'ingredients' => 'Vin rouge 75cl',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 34,
-            // 'gamme_id' => 
-        ]);
-
-        //FORMULE
-        Article::create([
-            'name' => 'Menu Bombino',
-            'ingredients' => '1 antipasti, 2 pizzas au choix, 1 bouteille de vin. Focaccia offerte !',
-            'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
-            'price' => 60,
-            // 'gamme_id' => 
-        ]);
-        Article::create([
-            'name' => 'Menu Panuozzo',
-            'ingredients' => 'Choisis ton sandwich molto gourmand, ta boisson et on t\'offre le Tiramisu !',
-            'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
-            'price' => 13,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 7
         ]);
 
         //Dolce
@@ -302,7 +320,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Oeuf, lactose, gluten',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 5.50,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 5
         ]);
         Article::create([
             'name' => 'Cannoli',
@@ -310,7 +329,8 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Lactose, gluten',
             'image' => 'sage_barista_express_impress_bst_inox_noir.jpg',
             'price' => 7.50,
-            // 'gamme_id' => 
+            'highlighted'=> false,
+            'gamme_id' => 5
         ]);
 
     }

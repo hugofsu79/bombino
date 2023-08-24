@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\booking;
+use App\Models\Commande;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class bookingSeeder extends Seeder
+class CommandeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        \App\Models\booking::factory(20)->create();
+        Commande::factory(30)->create();
     }
 }

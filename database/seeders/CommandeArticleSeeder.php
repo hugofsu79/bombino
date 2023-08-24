@@ -15,12 +15,11 @@ class CommandeArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i = 1; $i <61; $i++){
+        for($i = 1; $i <31; $i++){
             DB::table('commandes_articles')->insert([
                 'article_id' => rand(1 , Article::count()),
                 'commande_id' => $i,
-                'quantite' => rand(1, 10),
-                'reduction' => rand(10, 20)
+                'quantity' => rand(1, 10)
             ]);
 
         }

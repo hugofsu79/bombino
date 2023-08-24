@@ -12,12 +12,11 @@ class commandesArticles extends Model
 
     public function Article()
     {
-        return $this->hasMany(articles::class);
+        return $this->hasMany(Article::class, 'commandes_articles')->withPivot(array('quantity'));
     }
 
-    public function articles()
+    public function Commande()
     {
-        //withPivot(array('quantite','reduction')) = car on rajoute 2 champs supplémentaires : quantite et reduction
-        return $this->belongsToMany(Article::class, 'commandes_articles')->withPivot(array('quantity'));
+        return $this->belongsTo(commandes::class);
     }
 }
