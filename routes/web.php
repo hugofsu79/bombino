@@ -26,9 +26,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+// Route  "USER"
+Route::resource('/user', App\Http\Controllers\UserController::class)->except('index', 'create', 'store');
+Route::put('/user/updatepassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatepassword');
+
 // Route controller User -> à elle seule, elle crée les 7 routes du mode ressource
 Route::resource('users', UserController::class)->except('index', 'create', 'store');
 
 
 // Modification mot de passe
 Route::put('/user/updatepassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatepassword');
+
+
+//*******************Route pour la gestion du back-office************************************/
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('admin');

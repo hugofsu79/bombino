@@ -11,6 +11,6 @@ class Gamme extends Model
 
     public function articles()
     {
-        return $this->belongsTo(Article::class);
+        return $this->hasMany(Article::class);
     }
 }

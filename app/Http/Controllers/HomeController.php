@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Article;
+use App\Models\Gamme;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    // Function limit 3 cards/articles et les notes du produits
     public function index()
     {
-        return view('home');
+        $gammes = Gamme::with('articles')->get();
+
+
+        //je retourne la vue home en y injectant les posts
+        return view('home', [
+            'gammes' => $gammes,
+            // 'highlighted' => $highlighted[0],  //[0]<- l'intérêt est de récuperer seulement la promo du moment
+        ]);
     }
 }

@@ -24,13 +24,13 @@ class Article extends Model
         'highlighted'
     ];
 
-    public function commandeArticle()
+    public function commandes()
     {
-        return $this->belongsTo(commandes_articles::class);
+        return $this->belongsToMany(Commande::class,'commandes_articles')->withPivot(array('quantity'));
     }
 
-    public function Gamme()
+    public function gamme()
     {
-        return $this->hasMany(gammes::class);
+        return $this->belongsTo(Gamme::class);
     }
 }

@@ -50,9 +50,9 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class);
     }
 
-    public function roles()
+    public function role()
     {
-        return $this->hasMany(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function commandes()

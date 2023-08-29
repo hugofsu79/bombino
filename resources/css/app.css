@@ -1,12 +1,29 @@
-.head_explanation {
-    background-color: #FFF5DA;
-    border-radius: 4em;
-    margin: 2em;
-    padding: 2em;
+body {
+    background-color: #EBE3D7;
 }
 
+h2 {
+    font-family: "pf-marlet-display", sans-serif;
+    color: #CD2028;
+    font-weight: 700;
+    font-style: normal;
+}
 
+p {
+    font-family: 'SF Pro Display', sans-serif;
+}
 
-h1 {
-    
+p .allergens {
+    font-family: 'SF Pro Display Italic 200', sans-serif;
+}
+
+.name_produit {
+    padding-bottom: 2px;
+    border-block-end: 2px solid #CD2028;
+    writing-mode: horizontal-tb;
+}
+
+.footer {
+    color: white;
+    background-color: #1C1B19;
 }

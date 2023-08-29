@@ -13,25 +13,25 @@ class GammeSeeder extends Seeder
     public function run(): void
     {
         Gamme::create([
-            'nom' => 'Base crème de parmesan'
+            'name' => 'Base crème de parmesan'
         ]);
         Gamme::create([
-            'nom' => 'Base tomate'
+            'name' => 'Base tomate'
         ]);
         Gamme::create([
-            'nom' => 'Panuozzo'
+            'name' => 'Panuozzo'
         ]);
         Gamme::create([
-            'nom' => 'Antipasti'
+            'name' => 'Antipasti'
         ]);
         Gamme::create([
-            'nom' => 'Dolce'
+            'name' => 'Dolce'
         ]);
         Gamme::create([
-            'nom' => 'Soft'
+            'name' => 'Soft'
         ]);
         Gamme::create([
-            'nom' => 'Vino & birra'
+            'name' => 'Vino & birra'
         ]);
     }
 }
