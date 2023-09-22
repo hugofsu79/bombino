@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             GammeSeeder::class,
             ArticleSeeder::class,
             CommandeSeeder::class,
-            CommandeArticleSeeder::class
+            CommandeArticleSeeder::class,
         ]);
     }
 }

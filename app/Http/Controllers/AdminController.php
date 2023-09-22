@@ -18,14 +18,14 @@ class AdminController extends Controller
     {
         $articles = Article::all();
         $gammes = Gamme::All();
-        $Highlighted = Highlighted::All();
+        // $Highlighted = Highlighted::All();
         $booking = Booking::All();
 
 
         return view('backoffice.index', [
             'articles'      => $articles,
             'gammes'        => $gammes,
-            'Highlighted'   => $Highlighted,
+            // 'Highlighted'   => $Highlighted,
             'booking'       => $booking
         ]);
     }

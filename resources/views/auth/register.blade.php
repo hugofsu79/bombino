@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="login container pt-5">
+        <div class="card_register row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('S\'inscrire') }}</div>
+                <div class="justify-content-center">
+                    <h1 class="p-2"style="font-family: 'pf-marlet-display', sans-serif; color: #CD2028; font-size: 3em;">
+                        {{ __('S\'inscrire') }}</h1>
 
-                    <div class="card-body">
+                    <div>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -110,10 +111,28 @@
                                 </div>
                             </div>
 
+                            {{-- RGPD --}}
+
+                            <div class="form-grou row text-center">
+                                <div class="col-md-10">
+                                    <label for="politique">J'ai lu et j'accepte les
+                                        <a href="{{ route('politique') }}">mentions légales et la politique de
+                                            confidentialité</a>
+                                    </label>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" type="checkbox" name="politique" id="politique"
+                                        onclick="toggleValidationButtonDisplay()">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
                             {{-- Bouton "Valider" --}}
                             <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="offset-md-4 pt-3">
+                                    <button id="valider" type="submit" class="btn btn-primary"
+                                        style="visibility: hidden">
                                         {{ __('Valider') }}
                                     </button>
                                 </div>
@@ -124,4 +143,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleValidationButtonDisplay() {
+            let checkbox = document.getElementById("politique");
+            let boutonValider = document.getElementById("valider");
+            checkbox.checked ? boutonValider.style.visibility = "visible" : boutonValider.style.visibility = "hidden"
+        }
+    </script>
 @endsection

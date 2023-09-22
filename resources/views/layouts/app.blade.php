@@ -14,74 +14,112 @@
     <link rel="stylesheet" href="https://use.typekit.net/vbd7zxg.css">
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <!--************ Scripts - CSS ************-->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css'])
 
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-warning shadow-sm fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="home#">
-                    <img class="w-25" src="{{ asset('images/kahwas_logo.png') }}" alt="Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav id="navbar" class="default-background fixed-top">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-------------------------------- liens accessibles à tous --------------------------------->
 
 
-                    {{-- <!-------------------------------- liens accessibles aux invités uniquement ---------------------------------> --}}
+        {{-- <!-------------------------------- liens accessibles aux invités uniquement ---------------------------------> --}}
 
-                    @guest
-                        <div class="col-md-2 d-flex nav-item">
-                            @if (Route::has('login'))
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                            @endif
-                            @if (Route::has('register'))
-                                <a class="nav-link ps-2" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                            @endif
-                        </div>
+        <div>
 
-                        <!-------------------------------- liens accessibles aux connectés uniquement --------------------------------->
-                    @else
+            @guest
+                <div class="dropdown_nav dropdown">
+                    <div class="row">
                         <div class="col">
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                    <!-- Lien vers "MON COMPTE" -->
-                                    <a class="dropdown-item" href="{{ route('user.edit', $user = Auth::user()) }}">Mon
-                                        compte</a>
-
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-
-                                    @if (Auth::user()->role_id == 2)
-                                        <a class="dropdown-item" href="{{ route('admin') }}">
-                                            Back-office
-                                        </a>
-                                    @endif
-                                </div>
-                            </li>
+                            <a class="navbar-brand" type="button"href="{{ route('home') }}">
+                                <img class="logo m-2" width="23%" src="{{ asset('svg/bombino_v2-06.svg') }}"
+                                    alt="home_button">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('login') }}"><button class="left_button">Réserver</button></a>
+                        </div>
+                        <div class="col">
+                            @if (Route::has('register'))
+                                <a class="right_button nav-link ps-2" href="{{ route('register') }}">Inscription</a>
                         </div>
                         @endif
+
+                        <div class="col">
+                            @if (Route::has('login'))
+                                <a class="right_button nav-link" href="{{ route('login') }}">
+                                    Connexion</a>
+                            @endif
+                        </div>
+                    </div>
+
+                </div>
+                <!-------------------------------- liens accessibles aux connectés uniquement --------------------------------->
+            @else
+                <div class="row">
+                    <div class="col">
+                        <a class="navbar-brand" type="button"href="{{ route('home') }}">
+                            <img class="logo m-2" width="23%" src="{{ asset('svg/bombino_v2-06.svg') }}"
+                                alt="home_button">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <ul class="dropdown-menu">
+                            <li></li>
+                            <li>
+                                <!-- Lien vers "DECONNEXION" -->
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                    {{ __('Déconnexion') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="dropdown_nav dropdown">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{  route('booking.create', $user = Auth::user())  }}"><button class="left_button">Réserver</button></a>
+                    </div>
+
+                    <div class="col">
+                        @if (Route::has('login'))
+                                <a class="right_button"  href="{{ route('user.edit', $user = Auth::user()) }}">Mon profil</a>
+                        @endif
+                    </div>
+                    <div class="col">
+                        <a class="panier nav-link active position-absolute" aria-current="panier"
+                            href="{{ route('panier.show') }}"><img width="80%" src="{{ asset('svg/panier-10.svg') }}"
+                                alt="panier"></a>
                     </div>
                 </div>
-        </div>
+
+            </div>
+
+            {{-- <a href="{{ route('booking.index') }}">Catalogue</a> --}}
+
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
+            @if (Auth::user()->role_id == 2)
+                <a href="{{ route('admin') }}">
+                    Back-office
+                </a>
+            @endif
+
+            </div>
+            @endif
         </nav>
 
-        <div class="container-fluid text-center mt-5">
+        <div class="container-fluid text-center mt-5 pt-5">
             @if (session()->has('message'))
                 <p class="alert alert-success">{{ session()->get('message') }}</p>
             @endif
@@ -100,8 +138,9 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer>
+            <h1>Le soeur</h1>
+        </footer>
     </body>
-    <footer>
-    </footer>
 
     </html>

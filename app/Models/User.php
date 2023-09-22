@@ -45,7 +45,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function bookings()
+    public function booking()
     {
         return $this->hasMany(Booking::class);
     }
@@ -53,6 +53,12 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin()
+    {
+        //return $this->role == "admin";
+        return $this->role_id == 2;
     }
 
     public function commandes()

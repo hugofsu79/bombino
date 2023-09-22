@@ -1,29 +1,510 @@
 body {
-    background-color: #EBE3D7;
+    background-color: #fbf5ec;
 }
 
-h2 {
-    font-family: "pf-marlet-display", sans-serif;
+/* bar
+   ========================================================================== */
+nav {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.9s;
+    align-items: center;
+}
+
+
+img .logo {
+    position: relative;
+}
+
+img .logo:hover {
+    size: 2em;
+    transition: 0.3s;
+}
+
+.badge {
+    margin-top: 1em;
+    padding: 0.4em;
+    position: relative;
+    top: 0px;
+    right: 32vw;
+}
+
+.dropdown_nav {
+    font-family: 'SF Pro Display', sans-serif;
+    color: #1C1B19;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+}
+
+.left_button {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 1.2em;
     color: #CD2028;
+    background-color: hsla(0, 0%, 0%, 0);
+    margin: 0.5em;
+    border: solid 0.1em #CD2028;
+    border-radius: 2em;
+    transition: 0.3s;
+}
+
+.left_button:hover {
+    background-color: #efe2ce;
+    color: #CD2028;
+    border: solid 0.1em #efe2ce;
+    border-radius: 2em;
+    transition: 0.8s;
+}
+
+.left_button:active {
+    color: #a29b8d;
+}
+
+
+.right_button {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 1.2em;
+    padding: 0.1em;
+    color: #CD2028;
+    background-color: hsla(0, 0%, 0%, 0);
+    margin: 0.5em;
+    border: solid 0.1em #CD2028;
+    border-radius: 2em;
+    transition: 0.09s;
+}
+
+.right_button:hover {
+    background-color: #efe2ce;
+    border: solid 0.1em #efe2ce;
+    border-radius: 2em;
+    transition: 0.8s;
+}
+
+.left_button:active {
+    color: rgb(218, 209, 191);
+}
+
+
+.card-body {
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+
+.scroll-background {
+    color: #F2EBE9;
+    background-color: rgb(239, 208, 161);
+}
+
+/* Panier
+   ========================================================================== */
+
+.h1_panier {
+    padding-top: 4em;
+
+}
+
+.panier {
+    position: relative;
+    top: 1px;
+    left: 90vw;
+    padding: 1em;
+    margin-top: 2em;
+    margin-right: 2em;
+    /* background-color: #efe2ce; */
+    box-shadow: 6px 6px 5px #0000002f;
+    border-radius: 22em;
+}
+
+.panier:hover {
+    background-color: #efd0a1;
+    transition: 0.3s;
+}
+
+.panier:active {
+    background-color: #f1a22b;
+    transition: 0.3s;
+}
+
+/* Header
+   ========================================================================== */
+
+
+.header_style {
+    background-image: url(../../public/images/four_pizza.jpeg);
+    padding-bottom: 8em;
+    padding-top: 8em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100vw;
+    background-attachment: fixed;
+}
+
+
+.bombi_sous {
+    padding-top: 5em;
+}
+
+.title_bombino {
+    color: #efd0a1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.bombino {
+    border-radius: 4em 4em 4em 4em;
+    padding-top: 0.1em;
+    margin-bottom: -50px;
+    font-family: "pf-marlet-display", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    background-position-y: 40em;
+    font-size: 15vw;
+    width: 100%;
+}
+
+.adresse {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 2vw;
+    position: relative;
+    top: 2vw;
+    left: 68vw;
+}
+
+.sous-titre {
+    font-family: 'SF Pro Display', sans-serif;
+    text-align: center;
+    color: #e06a70;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 5.8vw;
+}
+
+.four_pizza {
+    width: 95vw;
+    object-fit: cover;
+
+    float: left;
+    shape-outside: content-box;
+    zoom: 30%;
+}
+
+.pizzeria_typo {
+    width: 40%;
+}
+
+
+h3 {
+    font-family: "pf-marlet-display", sans-serif;
+    color: #1C1B19;
     font-weight: 700;
     font-style: normal;
+
+}
+
+h4 {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 3em;
 }
 
 p {
     font-family: 'SF Pro Display', sans-serif;
 }
 
-p .allergens {
-    font-family: 'SF Pro Display Italic 200', sans-serif;
+/* -----------  Home page  ----------- */
+/* --------  Menu  -------- */
+
+.gamme_chap {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8vw;
+}
+
+.gamme_title {
+    color: #d7c1aa;
+    margin-left: 1em;
+    transition: 0.75s;
+}
+
+.gamme_title:hover {
+    color: #CD2028;
+    transition: 0.75s;
+
+}
+
+.title_menu {
+    font-family: "pf-marlet-display", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: calc(3vmin + 80px);
+    margin: 80px 0 20px;
+}
+
+.photo_article {
+    height: 12em;
+}
+
+/* Sticky effect */
+
+.column {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.heading-content {
+    flex-grow: 1;
 }
 
 .name_produit {
+    font-family: 'SF Pro Display', sans-serif;
     padding-bottom: 2px;
-    border-block-end: 2px solid #CD2028;
+    color: #CD2028;
+    border-block-end: 2px solid;
     writing-mode: horizontal-tb;
 }
 
-.footer {
+
+/* Sticky Content -> gammes
+   ========================================================================== */
+.gamme_name {
+    padding-top: 2em;
+    font-size: 4em;
+}
+
+.sticky-content {
+    position: sticky;
+    top: 0;
+    /* z-index: 10; */
+    padding: 3rem 20px;
+}
+
+.sticky-content-title {
+    margin: 0;
+    font-size: 35px;
+}
+
+.placeholder-content {
+    margin-top: 2em;
+    height: 1000px;
+}
+
+.placeholder-title {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --------  Story Bombino  -------- */
+.story {
+    background-color: #CD2028;
+    padding: 4em;
+}
+
+.marco_image {
+    object-fit: cover;
+    border-radius: 4em 22em 22em 4em;
+    float: left;
+    shape-outside: content-box;
+    margin: 0px 20px 5px 0px;
+}
+
+.presentation {
+    font-family: "pf-marlet-display", sans-serif;
+    font-size: 6em;
+    opacity: 80%;
+    color: #fa737a;
+}
+
+.presentation_text {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 1.5em;
+    opacity: 80%;
     color: white;
+}
+
+/* -----------  Horaire  ----------- */
+.horaire {
+    color: #fff1f1;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #D4AF37;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* -----------  Réservation  ----------- */
+/* --------  Formulaire  -------- */
+.formulaire {
+    background-color: #F2EBE9;
+    padding: 3em;
+    border-radius: 2em;
+}
+
+.formulaire h3 {
+    font-family: 'SF Pro Display', sans-serif !important;
+    color: #CD2028;
+
+}
+
+.title_reservation {
+    font-size: 2em;
+}
+
+
+/* -----------  Login----------- */
+
+div .login {
+    margin-top: 10em;
+}
+
+/* -----------  register----------- */
+login {
+    background-image: url(/public/images/bg_bombino.png);
+}
+
+/* -----------  Backoffice ----------- */
+/* --  Créer un article -- */
+
+form {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+/* switch bouton */
+
+
+@green: #2ecc71;
+@lightgray: lightgray;
+@background: whitesmoke;
+
+.inactiveMixin {
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+.beforeAnimation {
+    -moz-transition: .2s cubic-bezier(.24, 0, .5, 1);
+    -o-transition: .2s cubic-bezier(.24, 0, .5, 1);
+    -webkit-transition: .2s cubic-bezier(.24, 0, .5, 1);
+    transition: .2s cubic-bezier(.24, 0, .5, 1);
+}
+
+.afterAnimation {
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, .04), 0 4px 9px hsla(0, 0%, 0%, .13), 0 3px 3px hsla(0, 0%, 0%, .05);
+    -moz-transition: .35s cubic-bezier(.54, 1.60, .5, 1);
+    -o-transition: .35s cubic-bezier(.54, 1.60, .5, 1);
+    -webkit-transition: .35s cubic-bezier(.54, 1.60, .5, 1);
+    transition: .35s cubic-bezier(.54, 1.60, .5, 1);
+}
+
+/* switch */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f32121;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #75f679;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #f32121;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* ----------- footer Bombino ----------- */
+
+footer {
     background-color: #1C1B19;
+    margin-top: 20em;
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .sticky-content {
+        margin-right: 20em;
+        font-size: 0.9em;
+    }
+
+    .marco_image {
+        object-fit: cover;
+        border-radius: 22em 22em 4em 4em;
+        float: left;
+        shape-outside: content-box;
+    }
+
+    .presentation {
+        font-family: "pf-marlet-display", sans-serif;
+        font-size: 4em;
+        text-align: center;
+    }
+
+    .presentation_text {
+        font-size: 1.2em;
+        opacity: 80%;
+        text-align: center;
+    }
+
+    .story {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gamme_name {
+        font-size: 3em;
+    }
 }

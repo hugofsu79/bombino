@@ -50,22 +50,25 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:40'],
-            'first_name' => ['required', 'string', 'max:40'],
-            'phone_number' => ['required','digits:10', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password'      => [
-
-                'required', 'confirmed',
-                Password::min(8) // minimum 8 caractères 
-                    ->mixedCase() // une minuscule, une majuscule 
-                    ->letters()     // min 1 lettre
-                    ->numbers()        // Min 1 chiffre
-                    ->symbols()   // carcatère speciaux 
-            
+        return Validator::make(
+            $data,
+            [
+                'name' => ['required', 'string', 'max:40'],
+                'first_name' => ['required', 'string', 'max:40'],
+                'phone_number' => ['required', 'digits:10', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password'      => [
+                    'required', 'confirmed',
+                    Password::min(8) // minimum 8 caractères 
+                        ->mixedCase() // une minuscule, une majuscule 
+                        ->letters()     // min 1 lettre
+                        ->numbers()        // Min 1 chiffre
+                        ->symbols()   // carcatère speciaux 
+                ], // Nouvelle syntaxe validation mdp + infos https://laravel.com/docs/8.x/validation#validating-passwords 
+                'politique' => 'required',
             ],
-        ]);
+            ['politique.required' => 'Veuillez cocher la case pour acccepter la politique de confidentialité et les mentions légales']
+        );
     }
 
     /**
@@ -79,7 +82,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'first_name' => $data['first_name'],
-            'phone_number' =>$data['phone_number'],
+            'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
