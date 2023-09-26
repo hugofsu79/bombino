@@ -347,6 +347,7 @@
         <table class="table">
             <thead class="thead-dark">
                 <th>id</th>
+                <th>Role</th>
                 <th>nom</th>
                 <th>prénom</th>
                 <th>e-mail</th>
@@ -354,8 +355,9 @@
                 <th>supprimer</th>
             </thead>
             @foreach ($users as $user)
-                <tr>
+                <tr class="text-center">
                     <td>{{ $user->id }}</td>
+                    <td>{{ $user->role->role }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->email }}</td>

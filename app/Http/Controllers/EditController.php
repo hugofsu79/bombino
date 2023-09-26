@@ -11,7 +11,7 @@ class editController extends Controller
     public function update(Request $request, Gamme $gamme)
     {
         $request->validate([
-            'name' => 'required|min:5|max:100'
+            'name' => 'required|min:4|max:100'
         ]);
 
         //2) Sauvegarde du message => Va lancer un insert into en SQL

@@ -30,7 +30,7 @@ class ArticleController extends Controller
     {
         // on met en place un validateur avec les critères attendus
         $request->validate([
-            'name' => 'required|string|min:5|max:30',
+            'name' => 'required|string|min:3|max:30',
             'highlighted' => 'required',
             'ingredients' => 'required|min:10|max:100',
             'allergens' => 'nullable|max:100',
@@ -95,7 +95,7 @@ class ArticleController extends Controller
             'name' => 'required|min:4|max:30',
             'ingredients' => 'required|min:10|max:100',
             'allergens' => 'nullable|max:100',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
             'highlighted' => 'required',
             'gamme_id' => 'required',

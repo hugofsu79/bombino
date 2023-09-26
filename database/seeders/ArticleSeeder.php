@@ -283,7 +283,7 @@ class ArticleSeeder extends Seeder
         Article::create([
             'name' => 'Etna A rina 201 Girolamo Russo',
             'ingredients' => 'La classe et l\'élégance Sicilienne ! Cépages: nerello mascalese 94%, nerello cappuccio 6%!',
-            'image' => 'vino_etna_rossodoc_2017_girolamo_russo.jpg',
+            'image' => 'arina19_anv800.png',
             'price' => 43,
             'highlighted' => false,
             'gamme_id' => 7
