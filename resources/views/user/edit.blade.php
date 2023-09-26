@@ -157,7 +157,7 @@
                                                     ============================================================ -->
                             {{-- <div class="row mb-0 mt-2">
                                 <div class="col-md-12">
-                                    <form action="{{ route('user.destroy', $user) }}" method="POST">
+                                    <form action="{{ route('user.delete', $user) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger col-12"><small>Supprimer

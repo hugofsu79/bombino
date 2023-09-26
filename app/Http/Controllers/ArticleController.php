@@ -31,19 +31,26 @@ class ArticleController extends Controller
         // on met en place un validateur avec les critères attendus
         $request->validate([
             'name' => 'required|string|min:5|max:30',
-            'highlighted' => '',
+            'highlighted' => 'required',
             'ingredients' => 'required|min:10|max:100',
-            'allergens' => 'required|min:50|max:500',
-            'image' => 'required|min:5|max:25',
+            'allergens' => 'nullable|max:100',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
             'gamme_id' => 'required'
         ]);
-
-        // on sauvegarde l'article en base de données en se basant sur les champs du formulaire
-        Article::create($request->all());
+        // Création de l'article
+        Article::create([
+            'name'                  => $request->name,
+            'highlighted'           => $request->highlighted,
+            'ingredients'           => $request->ingredients,
+            'allergens'             => $request->allergens,
+            'image'                 => uploadImage($request['image']),
+            'price'                 => $request->price,
+            'gamme_id'              => $request->gamme_id,
+        ]);
 
         // on redirige vers l'accueil du back-office
-        return redirect()->route('admin.index')->with('message', 'Article créé avec succès');
+        return redirect()->route('admin')->with('message', 'Article créé avec succès');
     }
 
     /**
@@ -54,8 +61,8 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         $article->load(['highlighted' => function ($query) {
-            $query->whereDate('date_debut', '<=', date('Y-m-d')) 
-                ->whereDate('date_fin', '>=', date('Y-m-d')); 
+            $query->whereDate('date_debut', '<=', date('Y-m-d'))
+                ->whereDate('date_fin', '>=', date('Y-m-d'));
         }]);
 
         return view('articles/show', ['article' => $article]);
@@ -71,7 +78,7 @@ class ArticleController extends Controller
 
         return view('articles/edit', [
             'article' => $article,
-            'gamme_id' => Gamme::all()
+            'gammes' => Gamme::all()
         ]);
     }
 
@@ -85,17 +92,25 @@ class ArticleController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|min:5|max:30',
+            'name' => 'required|min:4|max:30',
             'ingredients' => 'required|min:10|max:100',
-            'allergens' => 'required|min:50|max:500',
-            'image' => 'required|min:5|max:25',
+            'allergens' => 'nullable|max:100',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
-            'gamme_id' => 'required'
+            'highlighted' => 'required',
+            'gamme_id' => 'required',
         ]);
 
-
-        $article->update($request->except('_token'));
-        return redirect()->route('admin.index')->with('message', 'Article modifié avec succès');
+        $article->update([
+            'name'                   => $request->name,
+            'ingredients'           => $request->ingredients,
+            'allergens' => $request->allergens,
+            'image'                 => isset($request['image']) ? uploadImage($request['image']) : $article->image,
+            'price'                  => $request->price,
+            'highlighted'                  => $request->highlighted,
+            'gamme_id'                 => $request->gamme_id,
+        ]);
+        return redirect()->route('admin')->with('message', 'Article modifié avec succès');
     }
 
     /**
@@ -106,7 +121,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('admin.index')->with('message', 'L\'article a bien été supprimé');
+        return redirect()->route('admin')->with('message', 'L\'article a bien été supprimé');
     }
-    
 }

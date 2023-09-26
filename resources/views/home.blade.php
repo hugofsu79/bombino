@@ -167,6 +167,9 @@
             </div>
         </div>
     </section>
+    <section class="livraison">
+        <h3>Il est également possible d'être livré avec nos partenaires</h3>
+    </section>
     <script>
         window.onscroll = function() {
             let navbar = document.getElementsByTagName('nav')[0]

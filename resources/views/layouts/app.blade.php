@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav id="navbar" class="default-background fixed-top">
+    {{-- <nav id="navbar" class="default-background fixed-top"> --}}
 
         <!-------------------------------- liens accessibles à tous --------------------------------->
 

@@ -335,6 +335,14 @@ li {
     list-style-type: none;
 }
 
+/* --------  Livraison  -------- */
+.livraison {
+    background: #5CC8BB;
+}
+.livraison h3 {
+    padding: 4em;
+}
+
 /* -----------  Réservation  ----------- */
 /* --------  Formulaire  -------- */
 .formulaire {

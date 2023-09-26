@@ -37,12 +37,12 @@ class GammeController extends Controller
         //1) On valide les champs en précisant les critères attendus
         $request->validate([
             //'name de l'input-> [critères]
-            'nom' => 'required|min:5|max:100'
+            'name' => 'required|min:3|max:100'
         ]);
 
         //2) Sauvegarde du message => Va lancer un insert into en SQL
         Gamme::create([                                  // 3 syntaxe possibles pour accéder au contenu de $request
-            'nom' => $request->nom
+            'name' => $request->name
         ]);
 
         //3) On redirige vers admin avec un message de succès
@@ -60,14 +60,14 @@ class GammeController extends Controller
     public function update(Request $request, Gamme $gamme)
     {
         $request->validate([
-            'nom' => 'required|min:5|max:100'
+            'name' => 'required|min:3|max:100'
         ]);
 
         //2) Sauvegarde du message => Va lancer un insert into en SQL
         $gamme->update($request->all());
 
         //3) On redirige vers l'accueil avec un message de succès
-        return redirect()->route('admin')->with('message', 'Gamme modifié avec succès'); //
+        return redirect()->route('admin')->with('message', 'Gamme modifiée avec succès'); //
     }
 
     /**

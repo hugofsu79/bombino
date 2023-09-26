@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center"> BACK OFFICE </h2>
+    <h1 class="text-center">Back office</h1>
 
     <!-- SECTION CREATION ARTICLE
-                                                                                                        ============================================================ -->
+                                                                                                                                                                            ============================================================ -->
 
     <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -13,7 +13,7 @@
                 <!-- Titre section -->
                 <h4 class="text-center">Enregistrer un article</h4>
                 <div class="container pl-5 pr-5">
-                    <form class="register_article row g-3">
+                    <div class="register_article row g-3">
                         <div class="col">
                             <div class="row">
                                 <div class="col">
@@ -50,7 +50,40 @@
                                         class="form-control @error('ingredients') is-invalid @enderror" name="ingredients"
                                         value="{{ old('Ingredients') }}" required>
 
-                                    @error('descritpion')
+                                    @error('ingredients')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12">
+                                    <legend>Produit du mois</legend>
+
+                                    <div>
+                                        <input type="radio" id="oui" name="highlighted" value="1" checked />
+                                        <label for="oui">Oui</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="non" name="highlighted" value="0" />
+                                        <label for="non">Non</label>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+
+                                <div class="col-md-12">
+                                    <input id="allergens" type="text" placeholder="allergens"
+                                        class="form-control @error('allergens') is-invalid @enderror" name="allergens"
+                                        value="{{ old('allergens') }}" required>
+
+                                    @error('allergens')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -58,7 +91,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="price" class="col-form-label ms-1"><small>{{ __('Prix') }}</small></label>
+                                <label for="price"
+                                    class="col-form-label ms-1"><small>{{ __('Prix') }}</small></label>
 
                                 <div class="col-md-12">
                                     <input id="price" type="number" placeholder="Prix"
@@ -72,34 +106,37 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
 
-                                <!-- Example single danger button -->
-                                <div class="btn-group col-md-12 m-4">
-                                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Gammes
-                                    </button>
-                                    <ul class="dropdown-menu">
+                            <!-- Example single danger button -->
+
+
+                            <div class="col-12">
+                                <label for="gamme"
+                                    class="col-form-label ms-1"><small>{{ __('Gamme') }}</small></label>
+
+                                <div class="col-md-12 text-center">
+                                    <select class="p-1" name="gamme_id" id="gamme_id">
+                                        <option value=""> Choisissez une gamme </option>
                                         @foreach ($gammes as $gamme)
-                                            <li><a class="dropdown-item" value="{{ $gamme->id }}"
-                                                    href="#">{{ $gamme->name }}</a></li>
+                                            <option value="{{ $gamme->id }}">{{ $gamme->name }}</option>
                                         @endforeach
-                                    </ul>
+                                    </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger col" id="button_validation_enregistrement"><small
-                                    class="text-light">{{ __('Enregistrer') }}</small>
-                            </button>
-                    </form>
+                        </div>
+                        <button type="submit" class="btn btn-danger" id="button_validation_enregistrement"><small
+                                class="text-light">{{ __('Enregistrer') }}</small>
+                        </button>
+                    </div>
                 </div>
             </div>
+        </div>
     </form>
 
 
 
     <!-- SECTION GESTION ARTICLES
-                                                                                                            ============================================================ -->
+                                                                                                                                                                                ============================================================ -->
     <!-- Titre section -->
     <h4 class="text-center mt-5">Gestion des articles</h4>
     <div class="container-fluid p-4 rounded-2 border-dark justify-content-center" id="section_gestion_articles">
@@ -108,12 +145,12 @@
 
 
                 <!-- TABLE
-                                                                                                                        ============================================================ -->
+                                                                                                                                                                                            ============================================================ -->
                 <div>
                     <table class="table border-dark">
 
                         <!-- TITRE DES COLONNES
-                                                                                                                                ============================================================ -->
+                                                                                                                                                                                                    ============================================================ -->
                         <thead>
                             <tr class="table table-dark table-striped text-center">
                                 <!-- name -->
@@ -129,7 +166,7 @@
                                 <!-- Image -->
                                 <th scope="col">Image</th>
                                 <!-- price -->
-                                <th scope="col">price</th>
+                                <th scope="col">Prix</th>
                                 <!-- Boutton modifier -->
                                 <th scope="col">Modifier</th>
                                 <!-- Boutton Supprimer -->
@@ -138,25 +175,32 @@
                         </thead>
 
                         <!-- BOUCLE AFFICHAGE INFOS ARTICLES
-                                                                                                                                ============================================================ -->
-                        @foreach ($articles as $article)
-                            <!-- ARTICLES
-                                                                                                                                    ============================================================ -->
-                            <tbody>
+                                                                                                                                                                                                    ============================================================ -->
+
+
+                        <tbody>
+                            @foreach ($articles as $article)
+                                <!-- ARTICLES
+                                                                                                                                                                                                        ============================================================ -->
                                 <tr class="table table-dark table-striped">
                                     <!-- name -->
                                     <td class="fs-5">{{ $article->name }}</td>
-                                    <!-- name -->
-                                    <td class="fs-5">{{ $gamme->name }}</td>
+                                    <!-- gamme -->
+                                    <td class="fs-5">{{ $article->gamme->name }}</td>
                                     <!-- ingredients -->
                                     <td>{{ $article->ingredients }}</td>
                                     <!-- highlighted -->
-                                    <th scope="col">
-                                        <label class="switch">
+                                    <td class="fs-5">
+                                        @if ($article->highlighted == 1)
+                                            oui
+                                        @else
+                                            non
+                                        @endif
+                                        {{-- <label class="switch">
                                             <input type="checkbox">
                                             <span class="slider round"></span>
-                                        </label>
-                                    </th>
+                                        </label> --}}
+                                    </td>
                                     <!-- ingredients -->
                                     <td>{{ $article->allergens }}</td>
                                     <!-- Image -->
@@ -180,8 +224,8 @@
                                         </form>
                                     </td>
                                 </tr>
-                            </tbody>
-                        @endforeach
+                            @endforeach
+                        </tbody>
 
                     </table>
                 </div>
@@ -190,16 +234,13 @@
     </div>
 
     <!-- SECTION CREATION GAMMES
-                                                                                                        
-@section('content')
-                                                                                                    <h3 class="text-center mx-auto">
-                                                                                                            Backoffice</h3>
-
-                                                                                                        <div class="mx-auto text-center">
-                                                                                                            <form class="p-3" action="{{ route('gammes.store') }}" method="POST">
-                                                                                                                @csrf
-                                                                                                                <!---Champs du formulaire -->
-    <input type="text" name="name" placeholder="name de la gamme">
+                                                                                                                                                                            
+@section('content')>
+                <h3 class="text-center mx-auto">Créer une gamme</h3>
+                                    <div class="mx-auto text-center"><form class="p-3" action="{{ route('gammes.store') }}" method="POST">@csrf
+                                        
+                                        <!---Champs du formulaire -->
+    <input type="text" name="name" placeholder="Nom de la gamme">
 
     <!-- Bouton de soumission -->
     <button type="submit">Ajouter</button>
@@ -249,18 +290,17 @@
             </table>
         </div>
     </div>
-    </div>
 
     <!-- Créer une gamme -->
 
     <div class="container w-50 p-5" style="display:none" id="rangesForm">
-        <h4>Créer une gamme</h4>
+        <h3>Créer une gamme</h3>
         <form method="post" action="{{ route('gammes.store') }}">
             @csrf
             <div class="form-group">
-                <label for="name">name</label>
-                <input required type="text" class="form-control" name="name" placeholder="moulin à café"
-                    id="name">
+                <label for="nom">nom</label>
+                <input required type="text" class="form-control" name="nom" placeholder="moulin à café"
+                    id="nom">
             </div>
             <button type="submit" class="btn btn-info text-light mt-4">Valider</button>
         </form>
@@ -299,7 +339,43 @@
         </table>
     </div>
 
+    {{-- Liste des clients --}}
 
-                        <!-- Modification des horaires
-                                                                                                                                ============================================================ -->
+    <div class="container pt-5" id="usersList">
+        <h4>Liste des utilisateurs</h4>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <th>id</th>
+                <th>nom</th>
+                <th>prénom</th>
+                <th>e-mail</th>
+                <th>Numéro de téléphone</th>
+                <th>supprimer</th>
+            </thead>
+            @foreach ($users as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->first_name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->phone_number }}</td>
+                    <td>
+                        <form method="post" action="{{ route('user.destroy', $user) }}">
+                            @csrf
+                            @method('delete')
+                            <input type="hidden" value="{{ $user->id }}" name="userId">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+
+
+
+    <!-- Modification des horaires
+                                                                                                                                                                                            ============================================================ -->
 @endsection

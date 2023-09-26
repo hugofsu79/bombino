@@ -86,8 +86,17 @@ Route::get('panier/empty', [App\Http\Controllers\PanierController::class, 'empty
 Route::get('/validation', [App\Http\Controllers\PanierController::class, 'validation'])->name('validation')->middleware('auth');
 // 'validation' pour afficher la page validation
 
+
+
+// ********** User ***********
+
+Route::get('account/{user}', [UserController::class, 'account'])->name('account');
+Route::put('account/update',  [App\Http\Controllers\UserController::class, 'update'])->name('account.update');
+Route::put('account/updatePassword',  [App\Http\Controllers\UserController::class, 'updatePassword'])->name('account.updatePassword');
+Route::delete('user/delete',  [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
 Route::resource('/user', App\Http\Controllers\UserController::class)->except('index', 'create', 'store');
 //valider les modifications d'informations personnelles
+
 
 Route::post('cart/validation', [App\Http\Controllers\PanierController::class, 'validation'])->name('cart.validation');
 // valider choix d'adresse de livraison ou de facturation
@@ -105,8 +114,11 @@ Route::resource('/booking', BookingController::class);
 Route::get('/politique', [App\Http\Controllers\HomeController::class, 'politique'])->name('politique');
 
 
+// ******************* Les routes ressources Articles **************** //
+Route::resource('/articles', ArticleController::class);
 
-
+// Route highlighted  --> GET
+Route::get('/highlighted', [App\Http\Controllers\HighlightedController::class, 'highlighted'])->name('highlighted');
 
 
 
