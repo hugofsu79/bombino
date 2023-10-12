@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- SECTION MODIF ARTICLE
-                    ============================================================ -->
+                        ============================================================ -->
     <div class="container-fluid pt-5" id="section_modif_article">
         <!-- Titre section -->
         <h2 class="text-center">Modifier la gamme {{ $gamme->name }}</h2>
@@ -15,12 +15,12 @@
 
 
                 <!-- CARD
-                                ============================================================ -->
+                                    ============================================================ -->
                 <div class="card border-secondary text-light mt-1">
 
 
                     <!-- CARD HEADER
-                                    ============================================================ -->
+                                        ============================================================ -->
                     <div class="card-header border-bottom border-secondary d-flex justify-content-between"
                         id="header_card_edit">
 
@@ -34,14 +34,13 @@
 
 
                     <!-- CARD BODY
-                                    ============================================================ -->
+                                        ============================================================ -->
                     <div class="card-body" id="body_card_edit">
 
 
                         <!-- FORMULAIRE CREATION ARTICLE
-                                        ============================================================ -->
-                        <form action="{{ route('gammes.update', $gamme) }}" method="POST"
-                            enctype="multipart/form-data">
+                                            ============================================================ -->
+                        <form action="{{ route('gammes.update', $gamme) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="col mb-3">
@@ -62,7 +61,7 @@
                             </div>
 
                             <!-- BOUTTON VALIDATION ENREGISTREMENT
-                                            ============================================================ -->
+                                                ============================================================ -->
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <button type="submit" class="btn col-12 border-secondary"><small
@@ -70,7 +69,7 @@
                                 </div>
                             </div>
 
-                           
+
 
                         </form>
                     </div>

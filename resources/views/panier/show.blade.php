@@ -85,7 +85,7 @@
 
                 <!-- Lien pour valider le panier -->
                 @if (Auth::user())
-                    <a class="btn ajoutValider mx-3" href="{{ route('validation') }}" title="Valider le panier">Valider</a>
+                    <a class="btn ajoutValider mx-3" href="{{ route('panier.validation') }}" title="Valider le panier">Valider</a>
                 @endif
 
                 <!-- Lien pour vider le panier -->

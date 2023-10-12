@@ -33,10 +33,10 @@ class UserSeeder extends Seeder
             'name' => 'Dupuy',
             'first_name' => 'Henri',
             'password' => Hash::make('Azerty88@'),
-            'email' => 'utilisateur@niceplaces.fr',
+            'email' => 'utilisateur@bombino.fr',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'role_id' => 2,
+            'role_id' => 1,
             'phone_number' => '0686137272'
         ]);
 

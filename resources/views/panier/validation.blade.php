@@ -60,44 +60,44 @@
 
 
             <!-- Section MODIF/VALID INFOS
-                                                            ============================================================ -->
+                                                                                ============================================================ -->
             <div class="container-fluid m-5">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
 
 
                         <!-- Card
-                                                                =========================================================== -->
+                                                                                    =========================================================== -->
                         <div class="card my-4">
 
 
                             <!-- Card header "S'inscrire"
-                                                                        ============================================================ -->
+                                                                                            ============================================================ -->
                             <div class="card-header"><small>{{ __('Informations personnelles') }}</small></div>
 
 
                             <!-- Card body
-                                                                    ============================================================ -->
+                                                                                        ============================================================ -->
                             <div class="card-body">
 
 
                                 <!-- Formulaire modif infos
-                                                                            ============================================================ -->
+                                                                                                ============================================================ -->
                                 <form method="POST" action="{{ route('user.update', $user) }}">
                                     @csrf
                                     @method('PUT')
 
 
-                                    <!-- Section name + prename
-                                                                            ============================================================ -->
+                                    <!-- Section name + first name
+                                                                                                ============================================================ -->
                                     <div class="d-flex justify-content-center gap-2">
 
 
                                         <!-- name
-                                                                            ============================================================ -->
+                                                                                                ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="name"
-                                                class="col-form-label ms-1"><small>{{ __('name') }}</small></label>
+                                                class="col-form-label ms-1"><small>{{ __('Nom') }}</small></label>
 
                                             <div class="col-md-12">
                                                 <input id="name" type="text" placeholder="name"
@@ -114,16 +114,16 @@
 
 
                                         <!-- first_name
-                                                                            ============================================================ -->
+                                                                                                ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="first_name"
-                                                class="col-form-label ms-1"><small>{{ __('first_name') }}</small></label>
+                                                class="col-form-label ms-1"><small>{{ __('Prénom') }}</small></label>
 
                                             <div class="col-md-12">
-                                                <input id="prename" type="text" placeholder="first_name"
+                                                <input id="first_name" type="text" placeholder="first_name"
                                                     class="form-control @error('first_name') is-invalid @enderror"
                                                     name="first_name" value="{{ $user->first_name }}" required
-                                                    autocomplete="prename" autofocus>
+                                                    autocomplete="first_name" autofocus>
 
                                                 @error('first_name')
                                                     <span class="invalid-feedback" role="alert">
@@ -132,13 +132,10 @@
                                                 @enderror
                                             </div>
                                         </div>
-
-
                                     </div>
 
-
                                     <!-- Email
-                                                                            ============================================================ -->
+                                                                                                ============================================================ -->
                                     <div class="col mb-3">
                                         <label for="email"
                                             class="col-form-label ms-1"><small>{{ __('E-mail') }}</small></label>
@@ -155,10 +152,26 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col mb-3">
+                                        <label for="email"
+                                            class="col-form-label ms-1"><small>{{ __('Numéro de téléphone') }}</small></label>
 
+                                        <div class="col-md-12">
+                                            <input id="phone_number" type="phone_number" placeholder="Numéro de téléphone"
+                                                class="form-control @error('phone_number') is-invalid @enderror"
+                                                name="phone_number" value="{{ $user->phone_number }}" required
+                                                autocomplete="phone_number">
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
 
                                     <!-- Bouton validation modification
-                                                                                        ============================================================ -->
+                                                                                                            ============================================================ -->
                                     <div class="row mb-0 mt-2">
                                         <div class="col-md-12">
                                             <button type="submit"
@@ -176,9 +189,10 @@
 
             <!-- ============================================================== TOTAL A PAYER ============================================================ -->
 
+
             <!-- On incrémente le total à payer -->
             @php$totalapayer = $total;
-                        session()->put('totalapayer', $totalapayer); @endphp ?>
+                                                session()->put('totalapayer', $totalapayer); @endphp ?> ?> ?>
 
             <td>
                 <!-- On affiche le total à payer avec un arrondi de 2 chiffres après la virgule -->
@@ -193,73 +207,73 @@
             <div class="d-flex justify-content-center">
 
                 {{-- <!-- Button trigger modal --> l'opérateur && permet d'ajouter des conditions --}}
-                @if
                 <button type="submit" name="clearCart" class="btn validerCommande m-3" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">
                     Valider la commande
                 </button>
-        @endif
-
-    </div>
-
-
-    <!-- =========================================================== MODAL =========================================================== -->
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content text-center">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Félicitations !</h1>
-                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Votre commande a été validée.</p>
-
-                    <!-- ================= Afficher le montant total du panier ===================== -->
-
-                    <p> Le montant total est de <strong>{{ number_format($totalapayer, 2, ',', ' ') }} €</strong>
-                    </p>
-                    <p>Récuperer la commande à partir de <?php
-                    
-                    // ===================  obtenir et afficher la date du jour formatée ===============
-                    
-                    $dateJour = date('d-m-Y');
-                    echo $dateJour;
-                    ?> </p>
-                    <p>Commande prête à récupérer à
-                        <?php
-                        // Date et l'heure actuelles
-                        $heureCommande = new DateTime('now');
-                    
-                        // Ajoutez 45 minutes pour l'heure de récupération
-                        $heureRecuperation = clone $heureCommande;
-                        $heureRecuperation->add(new DateInterval('PT45M'));// <- interval de 45minutes
-                    
-                        // Formatage des heures au format souhaité (Heure:Minute:Seconde)
-                        $heureCommandeFormat = $heureCommande->format('H:i:s');
-                        $heureRecuperationFormat = $heureRecuperation->format('H:i');
-                    
-                        echo $heureCommandeFormat . ' pour une récupération à ' . $heureRecuperationFormat;
-                        ?>
-                    </p>
-                    
-                    <p>Merci pour votre commande</p>
-                </div>
-
-
-                <!-- ========================================== BOUTON RETOUR A L'ACCUEIL =============================================== -->
-
-                <div class="modal-footer d-flex justify-content-center">
-                    <a href="{{ route('commandes.store') }}">
-                        <button class="btn validerCommande m-3">
-                            Retour à l'accueil
-                        </button>
-                    </a>
-                </div>
 
             </div>
-        </div>
-    </div>
-    @endif
+
+
+            <!-- =========================================================== MODAL =========================================================== -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content text-center">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Félicitations !</h1>
+                            <button type="button" class="btn-close m-0" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Votre commande a été validée.</p>
+
+                            <!-- ================= Afficher le montant total du panier ===================== -->
+
+                            <p> Le montant total est de <strong>{{ number_format($totalapayer, 2, ',', ' ') }} €</strong>
+                            </p>
+
+
+                            <p>Merci pour votre commande</p>
+                        </div>
+
+                        @if (count($user->adresses) > 0)
+                            <form action="{{ route('panier.recuperation') }}" class="p-3" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <option value=""></option>
+                                    @foreach ($user->adrewsses as $adresse)
+                                        <option value="{{ $adresse->id }}">
+                                            <p>{{ $adresse->adresse }}</p>
+                                            <p>{{ $adresse->code_postal }}</p>
+                                            <p>{{ $adresse->ville }}</p>
+                                        </option>
+                                    @endforeach
+                                    </select>
+                                    <button type="submit" class="btn ajoutValider m-3">Sélectionner</button>
+                                </div>
+                            </form>
+
+                            <!-- si le user n'a pas enregistré d'adresses -->
+                        @else
+                            <p class="rounded m-auto m-5 pt-4 p-3 bg-danger text-white">Vous n'avez aucune adresse
+                                enregistrée.
+                                Ajoutez-en une dans l'espace client.</p>
+                        @endif
+
+                        <!-- ========================================== BOUTON RETOUR A L'ACCUEIL =============================================== -->
+
+                        <div class="modal-footer d-flex justify-content-center">
+                            <a href="{{ route('commandes.store') }}">
+                                <button class="btn validerCommande m-3">
+                                    Retour à l'accueil
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection

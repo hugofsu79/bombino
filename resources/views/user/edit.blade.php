@@ -40,122 +40,121 @@
         </form>
 
         <!-- Section MODIF MOT DE PASSE
-                                        ============================================================ -->
+                                            ============================================================ -->
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-10">
 
 
                     <!-- Card
-                                                    ============================================================ -->
-                    <div class="card mt-4">
-
-
-                        <!-- Card header "S'inscrire"
                                                         ============================================================ -->
-                        <div class="card-header"><small>{{ __('Modification mot de passe') }}</small></div>
 
 
-                        <!-- Card body
-                                                        ============================================================ -->
-                        <div class="card-body">
-
-
-                            <!-- Formulaire modif infos
+                    <!-- Card header "S'inscrire"
                                                             ============================================================ -->
-                            <form method="POST" action="{{ route('updatepassword', $user) }}">
-                                @csrf
-                                @method('PUT')
+                    <div class="card-header"><small>{{ __('Modification mot de passe') }}</small></div>
 
 
-                                <!-- Section nom + prenom
+                    <!-- Card body
+                                                            ============================================================ -->
+                    <div class="card-body">
+
+
+                        <!-- Formulaire modif infos
                                                                 ============================================================ -->
-                                <div class="d-flex justify-content-center gap-2">
+                        <form method="POST" action="{{ route('updatepassword', $user) }}">
+                            @csrf
+                            @method('PUT')
 
 
-                                    <!-- Mot de passe actuel
+                            <!-- Section nom + prenom
                                                                     ============================================================ -->
-                                    <div class="col mb-3">
-                                        <label for="password"
-                                            class="col-form-label ms-1"><small>{{ __('Mot de passe actuel') }}</small></label>
-
-                                        <div class="col-md-12">
-                                            <input id="password" type="password" placeholder="Mot de passe actuel"
-                                                class="form-control @error('password') is-invalid @enderror"
-                                                name="actuel_password" value="{{ old('password') }}" required
-                                                autocomplete="password" autofocus>
-
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
+                            <div class="d-flex justify-content-center gap-2">
 
 
-                                    <!-- Nouveau mot de passe
-                                                                    ============================================================ -->
-                                    <div class="col mb-3">
-                                        <label for="password"
-                                            class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
+                                <!-- Mot de passe actuel
+                                                                        ============================================================ -->
+                                <div class="col mb-3">
+                                    <label for="password"
+                                        class="col-form-label ms-1"><small>{{ __('Mot de passe actuel') }}</small></label>
 
-                                        <div class="col-md-12">
-                                            <input id="password" type="password" placeholder="Nouveau mot de passe"
-                                                class="form-control @error('password') is-invalid @enderror"
-                                                name="nouveau_password" value="{{ old('password') }}" required
-                                                autocomplete="password" autofocus>
-                                            <div id="emailHelp" class="form-text ms-1">8 et 15 caracteres. minimum 1
-                                                lettre,
-                                                1 chiffre et 1 caractère spécial</div>
-
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-
-                                    <!-- Confirmation mot de passe
-                                                                    ============================================================ -->
-                                    <div class="col mb-3">
-                                        <label for="password"
-                                            class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
-
-                                        <div class="col-md-12">
-                                            <input id="password" type="password" placeholder="Nouveau mot de passe"
-                                                class="form-control @error('password') is-invalid @enderror"
-                                                name="nouveau_password_confirmation" value="{{ old('password') }}" required
-                                                autocomplete="password" autofocus>
-
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <!-- Boutton validation modification
-                                                                ============================================================ -->
-                                <div class="row mb-0 mt-2">
                                     <div class="col-md-12">
-                                        <button type="submit"
-                                            class="btn btn-primary col-12"><small>{{ __('Modifier le mot de passe') }}</small></button>
+                                        <input id="password" type="password" placeholder="Mot de passe actuel"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            name="actuel_password" value="{{ old('password') }}" required
+                                            autocomplete="password" autofocus>
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
 
-                            </form>
+
+                                <!-- Nouveau mot de passe
+                                                                        ============================================================ -->
+                                <div class="col mb-3">
+                                    <label for="password"
+                                        class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
+
+                                    <div class="col-md-12">
+                                        <input id="password" type="password" placeholder="Nouveau mot de passe"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            name="nouveau_password" value="{{ old('password') }}" required
+                                            autocomplete="password" autofocus>
+                                        <div id="emailHelp" class="form-text ms-1">8 et 15 caracteres. minimum 1
+                                            lettre,
+                                            1 chiffre et 1 caractère spécial</div>
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
 
-                            <!-- Boutton supression compte
-                                                    ============================================================ -->
-                            {{-- <div class="row mb-0 mt-2">
+                                <!-- Confirmation mot de passe
+                                                                        ============================================================ -->
+                                <div class="col mb-3">
+                                    <label for="password"
+                                        class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
+
+                                    <div class="col-md-12">
+                                        <input id="password" type="password" placeholder="Nouveau mot de passe"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            name="nouveau_password_confirmation" value="{{ old('password') }}" required
+                                            autocomplete="password" autofocus>
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <!-- Boutton validation modification
+                                                                    ============================================================ -->
+                            <div class="row mb-0 mt-2">
+                                <div class="col-md-12">
+                                    <button type="submit"
+                                        class="btn btn-primary col-12"><small>{{ __('Modifier le mot de passe') }}</small></button>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                        <!-- Boutton supression compte
+                                                        ============================================================ -->
+                        {{-- <div class="row mb-0 mt-2">
                                 <div class="col-md-12">
                                     <form action="{{ route('user.delete', $user) }}" method="POST">
                                         @csrf
@@ -165,16 +164,10 @@
                                     </form>
                                 </div>
                             </div> --}}
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         </form>
     </div>
-    <a href="{{ route('logout') }}"
-        onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-        {{ __('Déconnexion') }}
-    </a>
 @endsection

@@ -327,7 +327,7 @@ class ArticleSeeder extends Seeder
             'name' => 'Cannoli',
             'ingredients' => 'Biscuits gaufrés farcis d’une crème de ricotta de brebis aux pépites de chocolat et saupoudrés de sucre glace et pistaches En Promotion',
             'allergens' => 'Lactose, gluten',
-            'image' => 'cannoli.jpg',
+            'image' => 'Cannoli.png',
             'price' => 7.50,
             'highlighted' => false,
             'gamme_id' => 5

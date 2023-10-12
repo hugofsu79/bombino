@@ -83,7 +83,7 @@ Route::get('panier/empty', [App\Http\Controllers\PanierController::class, 'empty
 
 // *************** Les routes de la page Validation Panier *********** //
 
-Route::get('/validation', [App\Http\Controllers\PanierController::class, 'validation'])->name('validation')->middleware('auth');
+Route::get('panier/validation', [App\Http\Controllers\PanierController::class, 'validation'])->name('panier.validation')->middleware('auth');
 // 'validation' pour afficher la page validation
 
 
@@ -103,6 +103,18 @@ Route::post('cart/validation', [App\Http\Controllers\PanierController::class, 'v
 
 Route::get('/emptyAfterOrder', [App\Http\Controllers\PanierController::class, 'emptyAfterOrder'])->name('emptyAfterOrder');
 // pour vider le panier après validation de la commande
+
+
+// Récupération de la commande
+Route::get('/recuperer-commande', 'PanierController@recupererCommande');
+
+// ******************* Les routes de la page Commandes **************** //
+
+Route::resource('/commandes', App\Http\Controllers\CommandeController::class)->except('create', 'store', 'edit', 'update', 'destroy');
+
+Route::get('/sauvegardeCommande', [App\Http\Controllers\CommandeController::class, 'store'])->name('commandes.store');
+// 'store' pour sauvegarder la commande en BDD après validation de la commande
+
 
 
 // ******************* Les routes ressources Booking->reservation  **************** //

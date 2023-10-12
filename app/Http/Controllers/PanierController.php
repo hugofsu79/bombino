@@ -27,7 +27,7 @@ class PanierController extends Controller
 	{
 		// Validation de la requête
 		$this->validate($request, [
-			"quantite" => "numeric|min:1"
+			"quantity" => "numeric|min:1"
 		]);
 
 		$panier = session()->get("panier"); // On récupère le panier en session
@@ -44,7 +44,7 @@ class PanierController extends Controller
 		session()->put("panier", $panier); // On enregistre le panier
 
 		// Redirection vers le panier avec un message
-		return redirect()->route("panier.show")->withMessage("Produit ajouté au panier");
+		return back()->withMessage("Produit ajouté au panier");
 	}
 
 
@@ -77,18 +77,12 @@ class PanierController extends Controller
 	public function validation(Request $request)
 	{
 
-		if (Gate::denies("access_order_validation")){
-			abort(403, 'Vous n\'êtes pas connecté');
-		}
-
 		$user = User::find(auth()->user()->id);
 
 
 		// si je viens de choisir un moment pour récuperer la pizza
-		if (($request->adresseLivraisonId)) {
 			// session(['commande' => $hour]);
 			// autre syntaxe : session()->put('adresseLivraison' => $adresseLivraison);
-		}
 
 		// si je viens de choisir une adresse de facturation => même principe 
 		if (($request->adresseFacturationId)) {

@@ -1,9 +1,19 @@
 body {
     background-color: #fbf5ec;
 }
-h2{
+
+
+h1 {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 4em;
     color: #1C1B19;
 }
+
+h2 {
+    font-family: 'SF Pro Display', sans-serif;
+    color: #1C1B19;
+}
+
 /* bar
    ========================================================================== */
 nav {
@@ -15,6 +25,10 @@ nav {
     align-items: center;
 }
 
+navbar {
+    background-color: #fbf5ec !important;
+
+}
 
 img .logo {
     position: relative;
@@ -47,21 +61,20 @@ img .logo:hover {
     color: #CD2028;
     background-color: hsla(0, 0%, 0%, 0);
     margin: 0.5em;
-    border: solid 0.1em #CD2028;
-    border-radius: 2em;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .left_button:hover {
     background-color: #efe2ce;
-    color: #CD2028;
     border: solid 0.1em #efe2ce;
-    border-radius: 2em;
     transition: 0.8s;
+
 }
 
 .left_button:active {
     color: #a29b8d;
+    text-decoration: none
 }
 
 
@@ -96,7 +109,7 @@ img .logo:hover {
 
 .scroll-background {
     color: #F2EBE9;
-    background-color: rgb(239, 208, 161);
+    background-color: #fbf5ec;
 }
 
 /* Panier
@@ -105,28 +118,6 @@ img .logo:hover {
 .h1_panier {
     padding-top: 4em;
 
-}
-
-.panier {
-    position: relative;
-    top: 1px;
-    left: 90vw;
-    padding: 1em;
-    margin-top: 2em;
-    margin-right: 2em;
-    /* background-color: #efe2ce; */
-    box-shadow: 6px 6px 5px #0000002f;
-    border-radius: 22em;
-}
-
-.panier:hover {
-    background-color: #efd0a1;
-    transition: 0.3s;
-}
-
-.panier:active {
-    background-color: #f1a22b;
-    transition: 0.3s;
 }
 
 /* Header
@@ -140,19 +131,17 @@ img .logo:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100vw;
-    background-attachment: fixed;
 }
 
 
 .bombi_sous {
+    display: flex;
+    justify-content: center;
     padding-top: 5em;
 }
 
 .title_bombino {
-    color: #efd0a1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2em;
+    width: 30vw;
 }
 
 .bombino {
@@ -168,11 +157,12 @@ img .logo:hover {
 }
 
 .adresse {
+    text-decoration:none !important;
     font-family: 'SF Pro Display', sans-serif;
-    font-size: 2vw;
+    color: white;
+    font-size: 3vw;
     position: relative;
-    top: 2vw;
-    left: 68vw;
+    left: 9vw;
 }
 
 .sous-titre {
@@ -228,11 +218,14 @@ p {
     color: #d7c1aa;
     margin-left: 1em;
     transition: 0.75s;
+    text-decoration: underline;
+    text-decoration: none;
+    transition: 0.45s;
 }
 
 .gamme_title:hover {
     color: #CD2028;
-    transition: 0.75s;
+    transition: 0.45s;
 
 }
 
@@ -245,7 +238,7 @@ p {
 }
 
 .photo_article {
-    height: 12em;
+    height: 30vw;
 }
 
 /* Sticky effect */
@@ -272,10 +265,11 @@ p {
    ========================================================================== */
 .gamme_name {
     padding-top: 2em;
-    font-size: 4em;
+    font-size: 12em;
 }
 
 .sticky-content {
+    right: 20em;
     position: sticky;
     top: 0;
     /* z-index: 10; */
@@ -328,9 +322,9 @@ p {
 /* -----------  Horaire  ----------- */
 .horaire {
     color: #fff1f1;
-    padding-top: 2em;
+    padding-top: 1em;
     padding-bottom: 2em;
-    background-color: #D4AF37;
+    background-color: #CD2028;
 }
 
 li {
@@ -341,6 +335,7 @@ li {
 .livraison {
     background: #5CC8BB;
 }
+
 .livraison h3 {
     padding: 4em;
 }
@@ -376,6 +371,25 @@ login {
 }
 
 /* -----------  Backoffice ----------- */
+
+
+.arborescence button {
+    font-family: 'SF Pro Display', sans-serif;
+    background-color: #4b453800;
+    padding: 0.5em;
+    border-radius: 2em;
+    border: none;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.arborescence button:hover {
+    color: white;
+    background-color: #d0c0bb;
+    transition: 0.5s;
+
+}
+
 /* --  Créer un article -- */
 
 form {
@@ -386,10 +400,6 @@ form {
 
 /* switch bouton */
 
-
-@green: #2ecc71;
-@lightgray: lightgray;
-@background: whitesmoke;
 
 .inactiveMixin {
     content: "";
@@ -479,8 +489,14 @@ input:checked+.slider:before {
 /* ----------- footer Bombino ----------- */
 
 footer {
-    background-color: #1C1B19;
+    /* background-color: #1C1B19; */
     margin-top: 20em;
+}
+
+.logo_footer {
+    padding-left: 4em;
+    min-width: 10em;
+    max-width: 20em;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -504,9 +520,8 @@ footer {
     }
 
     .presentation_text {
-        font-size: 1.2em;
+        font-size: 1.4em;
         opacity: 80%;
-        text-align: center;
     }
 
     .story {
