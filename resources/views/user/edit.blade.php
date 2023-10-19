@@ -20,11 +20,11 @@
     </script>
 
 
-    <h1 class="text-center pt-5 mt-5">Mon compte</h1>
+    <h1 class="text-center pt-5 mt-5 pb-5">Mon compte</h1>
 
 
 
-    <div class="rack container align-self-center">
+    <div class="rack container align-self-center mb-5">
         <div class="arborescence row justify-content-around text-center align-self-center pb-5 pt-5">
             <div class="col">
                 <button onclick="showElement('modificationCompte')">Modifier mon profil</button>

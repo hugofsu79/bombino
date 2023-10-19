@@ -47,7 +47,8 @@
                     <div class="col">
                         <img class="title_bombino" src="{{ asset('svg/bombino_blanc.svg') }}" alt="logo">
                     </div>
-                    <div class="adresse_maps col"><a
+                    <div class="adresse_maps col">
+                        <a class="maps"
                             href="https://www.google.com/maps/place/Bombino/@46.3306898,-0.471051,15z/data=!4m6!3m5!1s0x480731415ca8e08f:0xf6bc77dfa913a4e4!8m2!3d46.3259305!4d-0.4686005!16s%2Fg%2F11hwcv47b3?entry=ttu"
                             target="_blank">
                             <h2 class="adresse" data-v-7df9fc40 class="adresse" target="_blank"
@@ -111,7 +112,7 @@
 
     <div class="gamme_chap p-1">
         @foreach ($gammes as $gamme)
-            <a class="gamme_title p-1" href="#{{ $gamme->name }}">
+            <a class="gamme_title p-1" href="{{ $gamme->name }}">
                 {{ $gamme->name }}
             </a>
         @endforeach
@@ -312,4 +313,6 @@
             </form>
         </div>
     </section>
+
+
 @endsection

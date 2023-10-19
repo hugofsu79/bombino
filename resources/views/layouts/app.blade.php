@@ -14,6 +14,8 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/vbd7zxg.css">
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+    {{-- Font -> 404 typographie --}}
+    <link rel="stylesheet" href="https://use.typekit.net/vbd7zxg.css">
     <!--************ Scripts - CSS ************-->
     @vite(['resources/sass/app.scss', 'resources/css/app.css'])
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -29,9 +31,18 @@
             <nav class="navbar fixed-top navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" type="button"href="{{ route('home') }}">
-                        <img class="logo m-2" width="23%" src="{{ asset('svg/bombino_v2-06.svg') }}"
-                            alt="home_button">
+                        <div class="row">
+                            <div class="col">
+                                <img class="logo m-2" width="23%" src="{{ asset('svg/bombino_v2-06.svg') }}"
+                                    alt="home_button">
+                            </div>
+                            <div class="col">
+                                <p class="home_signification">Home</p>
+                            </div>
+                        </div>
                     </a>
+                    <a href="#"><img class="logo_footer" src="{{ asset('svg/bombino_blanc.svg') }}"
+                            alt=""width="40%"></a>
                     @guest
                         <div class="navbar" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -93,13 +104,13 @@
         </div>
     </header>
     <main>
-        <div class="container-fluid text-center mt-5">
+        <div class="notification container-fluid text-center">
             @if (session()->has('message'))
                 <p class="alert alert-success">{{ session()->get('message') }}</p>
             @endif
 
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class=" alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -157,5 +168,6 @@
         </div>
     </footer>
 </body>
+
 
 </html>
