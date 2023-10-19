@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <!-- SECTION MODIF ARTICLE
+    <!-- SECTION MODIF ARTICLE / Ingrédient, modification
                                                 ============================================================ -->
     <div class="container-fluid pt-5 mt-5" id="section_modif_article">
         <!-- Titre section -->

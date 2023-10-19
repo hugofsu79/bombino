@@ -59,7 +59,11 @@
             </div>
         </div>
     </div>
-    {{-- <p>retrouvez l'histoire de bombino</p> --}}
+
+
+    <!--=============== Horaire d'ouverture ==========-->
+
+    
     <section class="horaire text-center">
         <h2 class="horaires">Les horaires</h2>
         <div class="row">
@@ -108,6 +112,10 @@
         </div>
     </section>
 
+
+    <!--=============== Entête ==========-->
+
+
     <h1 class="title_menu">Menu</h1>
 
     <div class="gamme_chap p-1">
@@ -117,6 +125,10 @@
             </a>
         @endforeach
     </div>
+
+
+    <!--=============== Menu ==========-->
+
 
     <div class="menu">
         @foreach ($gammes as $gamme)
@@ -139,32 +151,31 @@
                                                 alt="Image de l'article">
                                         </div>
                                         <div class="col">
-                                                <div class="detail_article row">
-                                                    <div class="col-md-10">
-                                                        <h2 class="name_produit">{{ $article->name }}</h2>
-                                                    </div>
-                                                    <div class="col align-self-center">
-                                                        <h2>{{ $article->price }} €</h2>
-                                                    </div>
-                                                </div>
+                                            <div class="detail_article row">
                                                 <div class="col-md-10">
-                                                    <p class="ingredients">{{ $article->ingredients }}</p>
+                                                    <h2 class="name_produit">{{ $article->name }}</h2>
                                                 </div>
-                                                <p class="allergens">{{ $article->allergens }}</p>
+                                                <div class="col align-self-center">
+                                                    <h2>{{ $article->price }} €</h2>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <p class="ingredients">{{ $article->ingredients }}</p>
+                                            </div>
+                                            <p class="allergens">{{ $article->allergens }}</p>
 
-                                                <div class="col">
+                                            <div class="col">
 
-                                                    <form method="POST" action="{{ route('panier.add', $article->id) }}"
-                                                        class="form-inline d-inline-block">
-                                                        @csrf
-                                                        <input value="1" type="number" name="quantity"
-                                                            placeholder="Quantité ?"
-                                                            class="quantity_menu form-control mr-2">
-                                                        <button type="submit"
-                                                            class="ajoutValider btn btn-danger mt-5 col-md-12">Ajouter
-                                                            au
-                                                            panier</button>
-                                                    </form>
+                                                <form method="POST" action="{{ route('panier.add', $article->id) }}"
+                                                    class="form-inline d-inline-block">
+                                                    @csrf
+                                                    <input value="1" type="number" name="quantity"
+                                                        placeholder="Quantité ?" class="quantity_menu form-control mr-2">
+                                                    <button type="submit"
+                                                        class="ajoutValider btn btn-danger mt-5 col-md-12">Ajouter
+                                                        au
+                                                        panier</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -177,6 +188,7 @@
         @endforeach
     </div>
 
+    <!--=============== Histoire restaurant ==========-->
 
     <section class="story">
         <div class="container">
@@ -208,12 +220,19 @@
             </div>
         </div>
     </section>
+
+
+    <!--=============== Livraison possible ==========-->
+
+
     <section class="livraison p-3">
+
         <a class="delivroo" href="https://deliveroo.fr/fr/menu/Niort/niort-centre-ville/bombino/?geohash=gbpxt2vx1z6c"
             target="_blank">
             <img src="{{ asset('svg/deliveroo-logo.svg') }}" alt="" width="50%"
                 class="justify-content-center align-items-center">
         </a>
+
         <div class="card_livraison row">
             <div class="col">
                 <img class="rounded-3" src="{{ asset('images/livraison.jpg') }}" width="70%">
@@ -241,6 +260,11 @@
             </div>
         </div>
     </section>
+
+
+    <!--=============== Annonce Recrutement ==========-->
+
+
     <section class="job">
         <h2 class="h2_job pb-3">Nous rejoindre</h2>
         <div class="container">
@@ -251,10 +275,9 @@
                             <h5 class="card-title"><b>Pizzaiolo/pizzaiola</b></h5>
                             <p class="card-text">
                                 {{ __('Vous aimez la cuisine ? Le contact clientèle ? Vincenzo Pizza recherche
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                un.e pizzaïolo.a motivé.e et autonome pour son camion à pizzas. Vos missions seront les
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                suivantes : - Confection de la pâte...') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                un.e pizzaïolo.a motivé.e et autonome pour son camion à pizzas. Vos missions seront les
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                suivantes : - Confection de la pâte...') }}
                             </p>
-                            {{-- <a href="#" class="btn btn-primary">Voir l'annonce</a> --}}
                         </div>
                     </div>
                 </div>
@@ -263,9 +286,8 @@
                         <h5 class="card-title"><b>Serveur(se)</b></h5>
                         <p class="card-text">
                             {{ __('Accompagné(e) par l\'équipe de salle, vous apporterez tous les soins nécessaires au bon fonctionnement du service.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Vous aimez le relationnel, le challenge commercial, ...') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Vous aimez le relationnel, le challenge commercial, ...') }}
                         </p>
-                        {{-- <a href="#" class="btn btn-primary">Voir l'annonce</a> --}}
                     </div>
                 </div>
 
@@ -313,6 +335,4 @@
             </form>
         </div>
     </section>
-
-
 @endsection

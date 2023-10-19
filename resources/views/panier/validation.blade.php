@@ -7,11 +7,11 @@
             <table class="table table-bordered table-hover bg-white mb-0">
                 <thead class="thead-dark">
                     <tr>
-                        <th style="background-color: #3F3028;color: white">#</th>
-                        <th style="background-color: #3F3028;color: white">Produit</th>
-                        <th style="background-color: #3F3028;color: white">Quantité</th>
-                        <th style="background-color: #3F3028;color: white">Prix</th>
-                        <th style="background-color: #3F3028;color: white">Total</th>
+                        <th style="background-color: #151734;color: white">#</th>
+                        <th style="background-color: #151734;color: white">Produit</th>
+                        <th style="background-color: #151734;color: white">Quantité</th>
+                        <th style="background-color: #151734;color: white">Prix</th>
+                        <th style="background-color: #151734;color: white">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,41 +57,41 @@
 
 
         <!-- Section MODIF/VALID INFOS
-                                                                                                                                ============================================================ -->
+                                                                                                                                        ============================================================ -->
         <div class="container-fluid m-5">
             <div class="row justify-content-center">
                 <div class="col-md-10">
 
 
                     <!-- Card
-                                                                                                                                    ============================================================ -->
+                                                                                                                                            ============================================================ -->
                     <div class="card my-4">
 
 
                         <!-- Card header "S'inscrire"
-                                                                                                                                            ============================================================ -->
+                                                                                                                                                    ============================================================ -->
                         <div class="card-header"><small>{{ __('Informations personnelles') }}</small></div>
 
 
                         <!-- Card body
-                                                                                                                                        ============================================================ -->
+                                                                                                                                                ============================================================ -->
                         <div class="card-body">
 
 
                             <!-- Formulaire modif infos
-                                                                                                                                                ============================================================ -->
+                                                                                                                                                        ============================================================ -->
                             <form method="POST" action="{{ route('user.update', $user) }}">
                                 @csrf
                                 @method('PUT')
 
 
                                 <!-- Section name + prename
-                                                                                                                                                ============================================================ -->
+                                                                                                                                                        ============================================================ -->
                                 <div class="d-flex justify-content-center gap-2">
 
 
                                     <!-- name
-                                                                                                                                                ============================================================ -->
+                                                                                                                                                        ============================================================ -->
                                     <div class="col mb-3">
                                         <label for="name"
                                             class="col-form-label ms-1"><small>{{ __('Nom') }}</small></label>
@@ -110,17 +110,36 @@
                                     </div>
 
 
-                                    <!-- Prename
-                                                                                                                                                ============================================================ -->
+                                    <!-- Prénom
+                                                                                                                                                        ============================================================ -->
                                     <div class="col mb-3">
-                                        <label for="prename"
+                                        <label for="first_name"
                                             class="col-form-label ms-1"><small>{{ __('Prénom') }}</small></label>
 
                                         <div class="col-md-12">
-                                            <input id="prename" type="text" placeholder="Préname"
-                                                class="form-control @error('Prénom') is-invalid @enderror" name="prename"
+                                            <input id="first_name" type="text" placeholder="Prénom"
+                                                class="form-control @error('Prénom') is-invalid @enderror" name="first_name"
                                                 value="{{ $user->first_name }}" required autocomplete="first_name"
                                                 autofocus>
+
+                                            @error('prename')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- Numéro de téléphone
+                                                                                                                                                                                                                                                                    ============================================================ -->
+                                    <div class="col mb-3">
+                                        <label for="prename"
+                                            class="col-form-label ms-1"><small>{{ __('Numéro de téléphone') }}</small></label>
+
+                                        <div class="col-md-12">
+                                            <input id="prename" type="text" placeholder="Préname"
+                                                class="form-control @error('Prénom') is-invalid @enderror"
+                                                name="phone_number" value="{{ $user->phone_number }}" required
+                                                autocomplete="phone_number" autofocus>
 
                                             @error('prename')
                                                 <span class="invalid-feedback" role="alert">
@@ -135,7 +154,7 @@
 
 
                                 <!-- Email
-                                                                                                                                                ============================================================ -->
+                                                                                                                                                        ============================================================ -->
                                 <div class="col mb-3">
                                     <label for="email"
                                         class="col-form-label ms-1"><small>{{ __('E-mail') }}</small></label>
@@ -155,7 +174,7 @@
 
 
                                 <!-- Bouton validation modification
-                                                                                                                                                            ============================================================ -->
+                                                                                                                                                                    ============================================================ -->
                                 <div class="row mb-0 mt-2">
                                     <div class="col-md-12">
                                         <button type="submit"

@@ -1,3 +1,77 @@
+/* Document information
+        -Document: Bombino
+        -Version: 2.0.8
+        -Author : Hugo
+*/
+
+/* Colors
+    Background #fbf5sec
+
+        defaut body text #eee
+        h1 #1C1B19;
+        h2 #1C1B19;
+        h3 #1C1B19;
+        
+        button
+        button:hover
+        button:active
+
+        icon #1C1B19 ou #e06a70;
+        border-radius
+*/
+
+/* Fonts
+        H1: font-family: "pf-marlet-display", sans-serif;ƒ
+        Reste: font-family: 'SF Pro Display', sans-serif;
+
+/* CSS DIRECTORY
+        Body style -> l.31 
+
+
+/* Arborescence
+-- header --
+1) Standard   
+2) Navbar     
+3) panier navbar
+4) header style
+5) footer
+6) 404
+
+-- Home page -- 
+1) Menu
+2) Gammes (sticky mode)
+3) Story Bombino
+4) Horaire
+5) Livraison
+6) Nos offres d'emploi
+7) Home annexe
+
+-- Réservation --
+1) Formulaire
+
+-- Compte --
+1) Login
+2) Register
+3) Mot de passe
+4) User compte
+
+-- Backoffice --
+1) Ent^te
+2) Créer un article
+3)Js switch bouton
+
+-- Détail commande -- 
+1) detail
+
+-- Media queries --
+1) 800px
+2) 1250px
+*/
+
+
+
+/* 1) Standard
+   ========================================================================== */
 body {
     background-color: #fbf5ec;
 }
@@ -14,7 +88,7 @@ h2 {
     color: #1C1B19;
 }
 
-/* bar
+/* 2) Navbar
    ========================================================================== */
 .notification {
     transform: translateY(90px);
@@ -29,20 +103,8 @@ nav {
     justify-content: space-between;
     transition: 0.9s;
     align-items: center;
-}
-
-.navbar {
     background-color: #151734;
     backdrop-filter: blur(20em);
-}
-
-.badge_panier {
-    transition: 0.75s;
-}
-
-.badge_panier:hover {
-    transform: translateY(-10px);
-    transition: 0.75s;
 }
 
 .logo {
@@ -76,6 +138,17 @@ nav {
     transform: translateX(-90px);
 
 }
+
+.badge_panier {
+    transition: 0.75s;
+}
+
+.badge_panier:hover {
+    transform: translateY(-10px);
+    transition: 0.75s;
+}
+
+
 
 .dropdown_nav {
     font-family: 'SF Pro Display', sans-serif;
@@ -123,11 +196,7 @@ nav {
     color: rgb(218, 209, 191);
 }
 
-.card-body {
-    font-family: 'SF Pro Display', sans-serif;
-}
-
-/* Panier
+/* 3) Panier navbar
    ========================================================================== */
 
 .h1_panier {
@@ -144,16 +213,17 @@ nav {
     background-color: #e06a70;
     border-radius: 2em;
 }
-.panier{
+
+.panier {
     transition: 0.4s;
 }
 
-.panier:hover{
-opacity: 40%;
-transition: 0.4s;
+.panier:hover {
+    opacity: 40%;
+    transition: 0.4s;
 }
 
-/* Header
+/* 4) Header
    ========================================================================== */
 
 
@@ -243,8 +313,44 @@ p {
     font-family: 'SF Pro Display', sans-serif;
 }
 
+/* 5) footer
+   ========================================================================== */
+
+footer {
+    /* background-color: #1C1B19; */
+    background-color: rgba(255, 255, 255, 0.314);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.logo_footer {
+    padding-left: 4em;
+    min-width: 10em;
+    max-width: 20em;
+}
+
+/* 6) 404
+   ========================================================================== */
+.picture_404 {
+    font-family: "brushberry-sans-one", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #CD2028;
+    font-size: 70vw;
+    display: grid;
+    place-items: center;
+    background-image: url(../../public/images/404.png);
+    background-size: cover;
+    padding-top: 0.2em;
+    margin-bottom: 0.3em;
+}
+
 /* -----------  Home page  ----------- */
-/* --------  Menu  -------- */
+/* 1) Menu
+   ========================================================================== */
+
 .produit {
     border: .2rem solid #ffba4c16;
     border-radius: 3em;
@@ -327,7 +433,7 @@ p {
 }
 
 
-/* Sticky Content -> gammes
+/* 2) Sticky Content -> gammes
    ========================================================================== */
 .gamme_name {
     padding-top: 2em;
@@ -357,7 +463,9 @@ p {
     margin-bottom: 1.5rem;
 }
 
-/* --------  Story Bombino  -------- */
+/* 3) Story Bombino
+   ========================================================================== */
+
 .story {
     background-color: #CD2028;
     padding: 4em;
@@ -385,7 +493,9 @@ p {
     color: white;
 }
 
-/* -----------  Horaire  ----------- */
+/* 4) Horaire
+   ========================================================================== */
+
 .horaire {
     color: #fff1f1;
     padding-top: 1em;
@@ -407,7 +517,8 @@ li {
     list-style-type: none;
 }
 
-/* --------  Livraison  -------- */
+/* 5) Livraison
+   ========================================================================== */
 .livraison {
     display: flex;
     flex-direction: column;
@@ -438,7 +549,9 @@ li {
 
 }
 
-/* Nos offres d'emploi */
+/* 6) Nos offres d'emploi
+   ========================================================================== */
+
 .h2_job {
     margin-left: 1em;
     margin-bottom: 1em;
@@ -476,8 +589,30 @@ li {
     justify-content: center;
 }
 
-/* -----------  Réservation  ----------- */
-/* --------  Formulaire  -------- */
+/* 7) Home Annexe
+   ========================================================================== */
+
+.finger {
+    width: 4em;
+    transform: translateX(90vw);
+    transition: 0.35s;
+    animation: fadeIn 5s;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+.finger:hover {
+    width: 4.2em;
+    transform: translateX(90vw) rotate(7deg);
+    transition: 0.35s;
+}
+
+/*=================== Reservation ===================== */
+
+/* 1) Formulaire
+   ========================================================================== */
+
 .formulaire {
     background-color: #F2EBE9;
     padding: 3em;
@@ -494,8 +629,10 @@ li {
     font-size: 2em;
 }
 
+/*=================== Compte ===================== */
 
-/* -----------  Login----------- */
+/* 1) Login
+   ========================================================================== */
 
 .login {
     margin-top: 20em;
@@ -540,36 +677,72 @@ li {
     font-size: 3em;
 }
 
-/* ----------- register ----------- */
+/* 2) Register
+   ========================================================================== */
 .register {
     padding-bottom: 8em;
     margin-top: 14em;
 
 }
 
-/* ----------- mot de passe oublié ----------- */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f32121;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* 3) Mot de passe
+   ========================================================================== */
 .reinitialiser {
     padding-bottom: 35em;
     margin-top: 24em;
 
 }
 
-/*------------- 404 ----------*/
-.picture_404 {
-    font-family: "brushberry-sans-one", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #CD2028;
-    font-size: 70vw;
-    display: grid;
-    place-items: center;
-    background-image: url(../../public/images/404.png);
-    background-size: cover;
-    padding-top: 0.2em;
-    margin-bottom: 0.3em;
+/* 4) User compte
+   ========================================================================== */
+
+.Mon_compte_creat {
+    margin: 2em;
+    display: flex;
+    border: none;
+    text-decoration: none;
+    justify-content: center;
 }
 
-/* -----------  Backoffice ----------- */
+.title_user {
+    font-size: 2.5em;
+}
+
+.supprimer_compte {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+
+
+/*=================== Backoffice ===================== */
+
+/* 1) Entête
+   ========================================================================== */
 .rack {
     padding: 8px;
     background-color: #f7edde;
@@ -604,7 +777,8 @@ li {
 
 }
 
-/* --  Créer un article -- */
+/* 2) créer un article
+   ========================================================================== */
 
 form {
     font-family: 'SF Pro Display', sans-serif;
@@ -612,8 +786,18 @@ form {
     font-weight: 900;
 }
 
-/* switch bouton */
+.panier_detail {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
 
+.table_detail {
+    margin-bottom: 43em;
+}
+
+/* 3) Js switch bouton
+   ========================================================================== */
 
 .inactiveMixin {
     position: absolute;
@@ -651,30 +835,6 @@ form {
     height: 0;
 }
 
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #f32121;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
 
 input:checked+.slider {
     background-color: #75f679;
@@ -700,42 +860,6 @@ input:checked+.slider:before {
 }
 
 
-/* User compte */
-
-.Mon_compte_creat {
-    margin: 2em;
-    display: flex;
-    border: none;
-    text-decoration: none;
-    justify-content: center;
-}
-
-.title_user {
-    font-size: 2.5em;
-}
-
-.supprimer_compte {
-    font-size: 1em;
-    margin-bottom: 1em;
-}
-
-/* home annexe */
-.finger {
-    width: 4em;
-    transform: translateX(90vw);
-    transition: 0.35s;
-    animation: fadeIn 5s;
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-}
-
-.finger:hover {
-    width: 4.2em;
-    transform: translateX(90vw) rotate(7deg);
-    transition: 0.35s;
-}
-
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -747,24 +871,8 @@ input:checked+.slider:before {
 }
 
 
-
-/* ----------- footer Bombino ----------- */
-
-footer {
-    /* background-color: #1C1B19; */
-    background-color: rgba(255, 255, 255, 0.314);
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-.logo_footer {
-    padding-left: 4em;
-    min-width: 10em;
-    max-width: 20em;
-}
-
+/* 1) 800px
+   ========================================================================== */
 
 @media only screen and (max-width: 800px) {
 
@@ -774,6 +882,8 @@ footer {
     }
 }
 
+/* 1) 1250px
+   ========================================================================== */
 
 @media only screen and (max-width: 1250px) {
     .sticky-content {

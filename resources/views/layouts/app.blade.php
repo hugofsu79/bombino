@@ -9,13 +9,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    
     {{-- favicon --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}">
+
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/vbd7zxg.css">
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     {{-- Font -> 404 typographie --}}
     <link rel="stylesheet" href="https://use.typekit.net/vbd7zxg.css">
+
     <!--************ Scripts - CSS ************-->
     @vite(['resources/sass/app.scss', 'resources/css/app.css'])
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

@@ -93,12 +93,12 @@
 
 
                                     <!-- Section nom + prenom
-                                                                                                                                                                                                                                                    ============================================================ -->
+                                                                                                                                                                                                                                                        ============================================================ -->
                                     <div class="d-flex justify-content-center gap-2">
 
 
                                         <!-- Mot de passe actuel
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                            ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="password"
                                                 class="col-form-label ms-1"><small>{{ __('Mot de passe actuel') }}</small></label>
@@ -119,7 +119,7 @@
 
 
                                         <!-- Nouveau mot de passe
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                            ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="password"
                                                 class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
@@ -143,7 +143,7 @@
 
 
                                         <!-- Confirmation mot de passe
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                            ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="password"
                                                 class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
@@ -164,7 +164,7 @@
                                     </div>
 
                                     <!-- Boutton validation modification
-                                                                                                                                                                                                                                                    ============================================================ -->
+                                                                                                                                                                                                                                                        ============================================================ -->
 
                                     <div class="Mon_compte_creat"> <button type="submit"
                                             class="btn btn-primary"><small>{{ __('Modifier le mot de passe') }}</small></button>
@@ -185,21 +185,21 @@
                         <table class=" table table-bordered p-5">
                             <thead class="text-center">
                                 <tr>
-                                    <th scope="col">Numéro</th>
-                                    <th scope="col">Prix</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Créneau choisi</th>
-                                    <th scope="col">Détails</th>
+                                    <th scope="col" style="background: #151734; color:white;">Numéro</th>
+                                    <th scope="col" style="background: #151734; color:white;">Prix</th>
+                                    <th scope="col" style="background: #151734; color:white;">Date</th>
+                                    <th scope="col" style="background: #151734; color:white;">Créneau choisi</th>
+                                    <th scope="col" style="background: #151734; color:white;">Détails</th>
                                 </tr>
                             </thead>
-                            <tr class="text-center">
+                            <tr class="text-center my-auto">
                                 <th scope="row">{{ $commande->id }}</th>
                                 <td>{{ $commande->price }} €</td>
                                 <td>{{ date('d/m/y', strtotime($commande->created_at)) }}</td>
                                 <td>{{ $commande->hour }}</td>
                                 <td>
                                     <!--BOUTON DU DETAIL DE LA COMMANDE-->
-                                    <a class="link-offset-2 link-underline link-underline-opacity-0"
+                                    <a class="link-offset-2 link-underline link-underline-opacity-0 text-dark"
                                         href="{{ route('commandes.show', $commande) }}">
                                         Détail
                                     </a><i class="fa-solid fa-magnifying-glass"></i>
@@ -213,7 +213,7 @@
 
 
         <!-- Boutton supression compte
-                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                            ============================================================ -->
 
         <div id="supressionCompte">
             <h2 class="title_user pb-3 text-center">Supprimer mon compte </h2>
@@ -221,12 +221,13 @@
             <!-- Button trigger modal -->
 
             <!-- Bouton suppression compte
-                                                            ============================================================ -->
-                <form action="{{ route('users.destroy', $user) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="supprimer_compte col-md-12 btn btn-danger mx-auto text-center">Supprimer</button>
-                </form>
+                                                                ============================================================ -->
+            <form action="{{ route('users.destroy', $user) }}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit"
+                    class="supprimer_compte col-md-12 btn btn-danger mx-auto text-center">Supprimer</button>
+            </form>
 
         </div>
     </div>
