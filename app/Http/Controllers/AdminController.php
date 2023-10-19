@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Article;
 use App\Models\Booking;
 use App\Models\Gamme;
-use App\Models\Highlighted;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,7 +24,6 @@ class AdminController extends Controller
 
         $articles = Article::all();
         $gammes = Gamme::All();
-        // $Highlighted = Highlighted::All();
         $booking = Booking::All();
         $users = User::with('role')->get();
 
@@ -33,7 +31,6 @@ class AdminController extends Controller
         return view('backoffice.index', [
             'articles'      => $articles,
             'gammes'        => $gammes,
-            // 'Highlighted'   => $Highlighted,
             'booking'       => $booking,
             'users' => $users
         ]);

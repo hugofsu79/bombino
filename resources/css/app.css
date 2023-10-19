@@ -17,6 +17,7 @@ h2 {
 /* bar
    ========================================================================== */
 nav {
+    z-index: 5;
     text-align: center;
     width: 100%;
     display: flex;
@@ -25,26 +26,33 @@ nav {
     align-items: center;
 }
 
-navbar {
-    background-color: #fbf5ec !important;
-
+.navbar {
+    background-color: #151734;
+    backdrop-filter: blur(20em);
 }
 
-img .logo {
+.badge_panier {
+    transition: 0.75s;
+}
+
+.badge_panier:hover {
+    transform: translateY(-10px);
+    transition: 0.75s;
+}
+
+.logo {
     position: relative;
 }
 
-img .logo:hover {
+.logo:hover {
+    opacity: 30%;
     size: 2em;
     transition: 0.3s;
 }
 
-.badge {
-    margin-top: 1em;
-    padding: 0.4em;
-    position: relative;
-    top: 0px;
-    right: 32vw;
+.logo:active {
+    opacity: 10%;
+    transition: 0.3s;
 }
 
 .dropdown_nav {
@@ -58,23 +66,16 @@ img .logo:hover {
 .left_button {
     font-family: 'SF Pro Display', sans-serif;
     font-size: 1.2em;
-    color: #CD2028;
+    color: #ffffff;
     background-color: hsla(0, 0%, 0%, 0);
     margin: 0.5em;
     transition: 0.3s;
     text-decoration: none;
 }
 
-.left_button:hover {
-    background-color: #efe2ce;
-    border: solid 0.1em #efe2ce;
-    transition: 0.8s;
-
-}
-
 .left_button:active {
-    color: #a29b8d;
-    text-decoration: none
+    opacity: 20%;
+    transition: 0.3s;
 }
 
 
@@ -82,19 +83,19 @@ img .logo:hover {
     font-family: 'SF Pro Display', sans-serif;
     font-size: 1.2em;
     padding: 0.1em;
-    color: #CD2028;
+    color: #ffffff;
     background-color: hsla(0, 0%, 0%, 0);
     margin: 0.5em;
-    border: solid 0.1em #CD2028;
+    border: solid 0.1em #ffffff;
     border-radius: 2em;
-    transition: 0.09s;
+    transition: 0.4s;
 }
 
 .right_button:hover {
-    background-color: #efe2ce;
-    border: solid 0.1em #efe2ce;
+    background-color: #ffffff;
+    border: solid 0.1em #ffffff;
     border-radius: 2em;
-    transition: 0.8s;
+    transition: 0.4s;
 }
 
 .left_button:active {
@@ -107,17 +108,22 @@ img .logo:hover {
 }
 
 
-.scroll-background {
-    color: #F2EBE9;
-    background-color: #fbf5ec;
-}
-
 /* Panier
    ========================================================================== */
 
 .h1_panier {
     padding-top: 4em;
+    padding-bottom: 2.8em;
 
+}
+
+.panier-header {
+    margin-bottom: 12em;
+}
+
+.table_panier {
+    background-color: #e06a70;
+    border-radius: 2em;
 }
 
 /* Header
@@ -157,12 +163,16 @@ img .logo:hover {
 }
 
 .adresse {
-    text-decoration:none !important;
+    text-decoration: none !important;
     font-family: 'SF Pro Display', sans-serif;
     color: white;
-    font-size: 3vw;
+    font-size: 1.89em;
     position: relative;
-    left: 9vw;
+    left: 15em;
+}
+
+.adresse_maps {
+    text-decoration: none;
 }
 
 .sous-titre {
@@ -207,17 +217,22 @@ p {
 
 /* -----------  Home page  ----------- */
 /* --------  Menu  -------- */
+.produit {
+    border: .2rem solid #ffba4c16;
+    border-radius: 3em;
+    margin-top: 2em;
+}
 
 .gamme_chap {
     display: flex;
-    flex-direction: row;
-    font-size: 0.8vw;
+    justify-content: center;
 }
 
 .gamme_title {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 2vw;
     color: #d7c1aa;
-    margin-left: 1em;
-    transition: 0.75s;
     text-decoration: underline;
     text-decoration: none;
     transition: 0.45s;
@@ -230,6 +245,7 @@ p {
 }
 
 .title_menu {
+    color: #151734;
     font-family: "pf-marlet-display", sans-serif;
     text-transform: uppercase;
     text-align: center;
@@ -237,8 +253,32 @@ p {
     margin: 80px 0 20px;
 }
 
+.quantity_menu {
+    color: rgb(67, 60, 55);
+    border: solid .1em #f8eadb;
+    background-color: #fff5ea;
+    text-align: center;
+}
+
 .photo_article {
-    height: 30vw;
+    height: 25vw;
+    border-radius: 1.5em;
+}
+
+.ajoutValider {
+    color: #CD2028;
+    background-color: #fbf5ec;
+}
+
+.detail_article {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredients {
+    font-size: 1.4em;
+    /* font-weight: bold; */
+
 }
 
 /* Sticky effect */
@@ -254,10 +294,8 @@ p {
 
 .name_produit {
     font-family: 'SF Pro Display', sans-serif;
-    padding-bottom: 2px;
+    font-size: 3em;
     color: #CD2028;
-    border-block-end: 2px solid;
-    writing-mode: horizontal-tb;
 }
 
 
@@ -265,7 +303,7 @@ p {
    ========================================================================== */
 .gamme_name {
     padding-top: 2em;
-    font-size: 12em;
+    font-size: 6em;
 }
 
 .sticky-content {
@@ -327,17 +365,87 @@ p {
     background-color: #CD2028;
 }
 
+.horaires {
+    font-family: "pf-marlet-display", sans-serif;
+    font-size: 4em;
+    color: #e06e73;
+}
+
+.font_hour {
+    font-size: 2em;
+}
+
 li {
     list-style-type: none;
 }
 
 /* --------  Livraison  -------- */
 .livraison {
-    background: #5CC8BB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    text-decoration: none;
 }
 
-.livraison h3 {
-    padding: 4em;
+.delivroo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    transition: 0.75s;
+
+}
+
+.delivroo:hover {
+    transform: translateY(-10px);
+    transition: 0.75s;
+}
+
+.card_livraison {
+    filter: blur(5px);
+    opacity: 60%;
+    margin-left: 2em;
+    margin-right: 2em;
+
+}
+
+/* Nos offres d'emploi */
+.h2_job {
+    margin-left: 1em;
+    margin-bottom: 1em;
+    font-family: "pf-marlet-display", sans-serif;
+    font-size: 4em;
+    display: flex;
+    align-items: center;
+    color: #fafafa;
+}
+
+.job {
+    padding-top: 8em;
+    padding-bottom: 8em;
+    background-color: #151734;
+}
+
+.card_job {
+    background-color: #21244f;
+    color: white;
+    box-shadow: 0px 12px 12px 8px #0f1028;
+    border-style: none;
+}
+
+.formulaire_candidature {
+    margin-top: 4em;
+    color: white;
+}
+
+.form-floating {
+    color: #1c1b194f;
+}
+
+.send_candidature {
+    display: flex;
+    justify-content: center;
 }
 
 /* -----------  Réservation  ----------- */
@@ -361,17 +469,69 @@ li {
 
 /* -----------  Login----------- */
 
-div .login {
-    margin-top: 10em;
+.login {
+    margin-top: 20em;
+    margin-bottom: 30em;
 }
 
-/* -----------  register----------- */
-login {
-    background-image: url(/public/images/bg_bombino.png);
+.card-header {
+    margin-bottom: 4em;
+}
+
+.login_button {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 1.2em;
+    padding: 0.1em;
+    color: #CD2028;
+    background-color: hsla(0, 0%, 0%, 0);
+    margin: 0.5em;
+    border: solid 0.1em #CD2028;
+}
+
+.login_button:hover {
+    border: solid 0.1em #CD2028;
+    color: #CD2028;
+    background-color: #fbf5ec;
+}
+
+.login_button:active {
+    border: solid 0.1em #CD2028;
+    color: #CD2028;
+    background-color: #fbf5ec;
+}
+
+.lien_login {
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.register_title {
+    font-family: 'pf-marlet-display',
+        sans-serif;
+    color: #CD2028;
+    font-size: 3em;
+}
+
+/* ----------- register ----------- */
+.register {
+    padding-bottom: 8em;
+    margin-top: 14em;
+
+}
+
+/* ----------- mot de passe oublié ----------- */
+.reinitialiser {
+    padding-bottom: 35em;
+    margin-top: 24em;
+
 }
 
 /* -----------  Backoffice ----------- */
-
+.rack {
+    padding: 8px;
+    background-color: #f7edde;
+    border-radius: 2em;
+}
 
 .arborescence button {
     font-family: 'SF Pro Display', sans-serif;
@@ -380,13 +540,24 @@ login {
     border-radius: 2em;
     border: none;
     font-size: 1em;
-    transition: 0.5s;
+    transition: 0.2s;
+}
+
+.gamme_id {
+    background-color: white;
+}
+
+.gamme_creat {
+    border: none;
+    padding-left: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+
 }
 
 .arborescence button:hover {
-    color: white;
-    background-color: #d0c0bb;
-    transition: 0.5s;
+    background-color: rgb(255, 246, 243);
+    transition: 0.2s;
 
 }
 
@@ -402,7 +573,6 @@ form {
 
 
 .inactiveMixin {
-    content: "";
     position: absolute;
     display: block;
 }
@@ -486,11 +656,61 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+
+/* User compte */
+
+.Mon_compte_creat {
+    margin: 2em;
+    display: flex;
+    border: none;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.title_user {
+    font-size: 2.5em;
+}
+
+.supprimer_compte {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+/* home annexe */
+.finger {
+    width: 4em;
+    transform: translateX(90vw);
+    transition: 0.25s;
+    animation: fadeIn 5s;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.finger:hover {
+    width: 4.2em;
+    transition: 0.35s;
+}
+
 /* ----------- footer Bombino ----------- */
 
 footer {
     /* background-color: #1C1B19; */
-    margin-top: 20em;
+    background-color: rgba(255, 255, 255, 0.314);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .logo_footer {
@@ -499,11 +719,24 @@ footer {
     max-width: 20em;
 }
 
-@media only screen and (max-width: 1250px) {
 
+@media only screen and (max-width: 800px) {
+
+    /* Styles pour cette Media Queries */
+    .finger {
+        transform: translateX(40em);
+    }
+}
+
+
+@media only screen and (max-width: 1250px) {
     .sticky-content {
         margin-right: 20em;
         font-size: 0.9em;
+    }
+
+    .finger {
+        transform: translateX(70em);
     }
 
     .marco_image {
@@ -513,13 +746,17 @@ footer {
         shape-outside: content-box;
     }
 
+
     .presentation {
         font-family: "pf-marlet-display", sans-serif;
         font-size: 4em;
-        text-align: center;
+        display: flex;
+        align-items: center;
+
     }
 
     .presentation_text {
+
         font-size: 1.4em;
         opacity: 80%;
     }
@@ -530,6 +767,19 @@ footer {
     }
 
     .gamme_name {
-        font-size: 3em;
+        font-size: 2.8em;
+    }
+
+    .gamme_chap {
+        font-size: 1em;
+    }
+
+    .adresse {
+        text-decoration: none !important;
+        font-family: 'SF Pro Display', sans-serif;
+        color: white;
+        font-size: 1.89em;
+        position: relative;
+        left: 6em;
     }
 }

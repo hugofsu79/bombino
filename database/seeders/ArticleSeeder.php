@@ -20,7 +20,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Tradition insulaire en fines bouchées savoureuses',
             'image' => 'coppa.jpg',
             'price' => 7,
-            'highlighted' => false,
             'gamme_id' => 4
         ]);
 
@@ -30,7 +29,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten',
             'image' => 'foccacia.jpg',
             'price' => 5,
-            'highlighted' => false,
             'gamme_id' => 4
         ]);
 
@@ -39,18 +37,16 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Mortadelle de sanglier, truffe',
             'image' => 'mortadella_truffe_sanglier.jpg',
             'price' => 7,
-            'highlighted' => false,
             'gamme_id' => 4
         ]);
 
         //PIZZA NAPOLETANA
         Article::create([
             'name' => 'Marinara',
-            'ingredients' => 'marinara-pizza.jpg',
+            'ingredients' => 'Tomates , ail, basilic frais, huile d’olive, origan',
             'allergens' => 'Gluten, lactose',
             'image' => 'marinara-pizza.jpg',
             'price' => 10,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -59,7 +55,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'red_hot_pizza_peppers.jpg',
             'price' => 15,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -68,7 +63,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'ortolana.jpeg',
             'price' => 16,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -77,7 +71,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'miss_piggy.jpg',
             'price' => 17,
-            'highlighted' => false,
             'gamme_id' => 1
         ]);
         Article::create([
@@ -86,7 +79,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'cest_la_truffance.jpg',
             'price' => 21,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -95,7 +87,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'azerty.jpg',
             'price' => 18,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -104,7 +95,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'verratti_burrata.jpg',
             'price' => 18,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -113,7 +103,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'margherita.jpg',
             'price' => 18,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -122,7 +111,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'Puissance-4.jpg',
             'price' => 15,
-            'highlighted' => false,
             'gamme_id' => 1
         ]);
         Article::create([
@@ -130,7 +118,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Crème de parmesan, fior di latte, gorgonzola, provolone, huile d\'olive et basilic',
             'image' => 'la_reine_de_ton_coeur.jpg',
             'price' => 14,
-            'highlighted' => true,
             'gamme_id' => 1
         ]);
         Article::create([
@@ -139,7 +126,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'verratti_burrata.jpg',
             'price' => 18,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -148,7 +134,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'sexy_calzedonia.jpg',
             'price' => 16,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
         Article::create([
@@ -157,7 +142,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'margherita.jpg',
             'price' => 10,
-            'highlighted' => false,
             'gamme_id' => 2
         ]);
 
@@ -168,7 +152,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'panuozzo_di_parma.jpeg',
             'price' => 10.50,
-            'highlighted' => false,
             'gamme_id' => 3
         ]);
         Article::create([
@@ -177,7 +160,6 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Gluten, lactose',
             'image' => 'panuozzo_4_fromages_patate.jpg',
             'price' => 10.50,
-            'highlighted' => true,
             'gamme_id' => 3
         ]);
 
@@ -187,7 +169,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'soft_cola.jpg',
             'price' => 4,
-            'highlighted' => false,
             'gamme_id' => 6
         ]);
         Article::create([
@@ -195,7 +176,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'soft_orange.jpg',
             'price' => 4,
-            'highlighted' => false,
             'gamme_id' => 6
         ]);
         Article::create([
@@ -203,7 +183,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'soft_mandarine.jpg',
             'price' => 4,
-            'highlighted' => false,
             'gamme_id' => 6
         ]);
         Article::create([
@@ -211,7 +190,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Eau Gazeuses 50cl',
             'image' => 'soft_san_pellegrino.jpg',
             'price' => 2,
-            'highlighted' => false,
             'gamme_id' => 6
         ]);
         Article::create([
@@ -219,7 +197,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
             'image' => 'soft_eau_san-benedetto.jpg',
             'price' => 2,
-            'highlighted' => false,
             'gamme_id' => 6
         ]);
 
@@ -229,7 +206,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Blanc sec fruité 75cl',
             'image' => 'vino_caldora_bianco.png',
             'price' => 16,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -237,7 +213,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Sec!',
             'image' => 'vino_ lambrusco_rosso_amabile_emilia.jpg',
             'price' => 13,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -245,7 +220,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Gourmand!',
             'image' => 'vino_ lambrusco_rosso_amabile_emilia.jpg',
             'price' => 13,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -253,7 +227,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Gourmand!',
             'image' => 'vino_prosecco_rosato_presa_n°3.jpg',
             'price' => 19,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -261,7 +234,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Vin rouge des Pouilles Un peu de puissance, solaire, gourmand !',
             'image' => 'vino_luccarelli_primitovo.jpg',
             'price' => 18,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -269,7 +241,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Famille Antinori, vin depuis 1385. Tignanello, révolutionnaire : Sangiovese en fût, mélange moderne, tanins vifs. Tignanello 2015 : riche, vibrant, complexe.',
             'image' => 'vino_tignanello-2015.png',
             'price' => 190,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -277,7 +248,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Incomparable!',
             'image' => 'vino_otello_nero_lambrusco_secco_emilia.jpg',
             'price' => 15,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -285,7 +255,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'La classe et l\'élégance Sicilienne ! Cépages: nerello mascalese 94%, nerello cappuccio 6%!',
             'image' => 'arina19_anv800.png',
             'price' => 43,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -293,7 +262,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'La classe et l\'élégance Sicilienne ! Cépages: nerello mascalese 100%',
             'image' => 'vino_etnaroso_docfeudo_2017_girolamo_russo.png',
             'price' => 88,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -301,7 +269,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => '33cl Blonde italienne',
             'image' => 'vino_biere_poretti.png',
             'price' => 2.5,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
         Article::create([
@@ -309,7 +276,6 @@ class ArticleSeeder extends Seeder
             'ingredients' => 'Vin rouge 75cl',
             'image' => 'vino_barbera-dalba.png',
             'price' => 34,
-            'highlighted' => false,
             'gamme_id' => 7
         ]);
 
@@ -320,16 +286,14 @@ class ArticleSeeder extends Seeder
             'allergens' => 'Oeuf, lactose, gluten',
             'image' => 'tiramisu.jpg',
             'price' => 5.50,
-            'highlighted' => false,
             'gamme_id' => 5
         ]);
         Article::create([
             'name' => 'Cannoli',
             'ingredients' => 'Biscuits gaufrés farcis d’une crème de ricotta de brebis aux pépites de chocolat et saupoudrés de sucre glace et pistaches En Promotion',
             'allergens' => 'Lactose, gluten',
-            'image' => 'Cannoli.png',
+            'image' => 'cannoli.png',
             'price' => 7.50,
-            'highlighted' => false,
             'gamme_id' => 5
         ]);
     }

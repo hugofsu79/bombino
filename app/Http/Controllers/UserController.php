@@ -59,7 +59,7 @@ class UserController extends Controller
             'name' => 'required|max:40',
             'first_name' => 'required|max:40',
             'email' => 'required|min:6|max:50',
-            'phone_number' => 'required|digits:10'//string pour les numéros
+            'phone_number' => 'required|digits:10' //string pour les numéros
         ]);
 
         // Modif des infos de l'utilsateur
@@ -118,12 +118,13 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request)
+    public function destroy(User $user)
     {
-        $userId = intval($request->input('userId'));
-        $user = User::find($userId);
-        $user->delete();
-        return redirect()->route('admin')->with('message', 'L\'utilisateur a bien été supprimé');
+        if (Auth::user()->id == $user->id) {
+            $user->delete();
+            return redirect()->route('home')->with('message', 'Le compte a bien été supprimé');
+        } else {
+            return redirect()->back()->withErrors(['erreur' => 'Supression du compte impossible']);
+        }
     }
-
 }

@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
 
             $table->id();
-            $table->float('price');
-            $table->dateTime('hour');
             $table->timestamps();
             
             $table->foreignId('user_id')->constrained();

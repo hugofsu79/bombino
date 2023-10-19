@@ -23,7 +23,7 @@ class CommandeController extends Controller
 
 
         // Autre façon pour récupérer la commande du user connecté
-        //$commandes = Commande::where('user_id', '=', Auth::user()->id)->get();
+        $commandes = Commande::where('user_id', '=', Auth::user()->id)->get();
 
 
         //je retourne les commandes associées au user dans la vue commandes/index
@@ -36,9 +36,9 @@ class CommandeController extends Controller
         // Créer et sauvegarder la commande
 
         $commande = new Commande();
-        $commande->numero = rand(1000000, 9999999);
         $commande->price = session('totalapayer');
         $commande->user_id = Auth::user()->id;
+        $commande->hour = session('choixCreneau');
         $commande->save();
 
         // Sauvegarder la commande articles
@@ -49,7 +49,7 @@ class CommandeController extends Controller
         foreach ($panier as $article) {
 
             // j'insère chacun de ses articles dans commande_articles (syntaxe attach) en virifiant avec isset ($ ['reduction']) pour voir si l'article est bien rémisé. avant le "?" c'est la condtion en demandant si l'article a bien une réduction (on appel ca un ternaire)
-            $commande->articles()->attach($article['id'], ['quantite' => $article['quantite']]);
+            $commande->articles()->attach($article['id'], ['quantity' => $article['quantity']]);
             // un trait le premier article en premier, id de l'article est atribué, on donne des champs supplémentaire avec ''ARRAY'' en suite la réduction.
         }
 
@@ -57,7 +57,12 @@ class CommandeController extends Controller
 
         return redirect()->route('emptyAfterOrder');
     }
-
+    public function choixCreneau(Request $request)
+    {
+        $choixCreneau = $request->input('choixCreneau');
+        session()->put('choixCreneau', $choixCreneau);
+        return back()->withMessage("Créneau validé");
+    }
 
     /**
      * Display the specified resource.
@@ -70,6 +75,6 @@ class CommandeController extends Controller
 
         // je les retourne dans une page de détail et j'injecte les données de ma variable "$commande"
         // avec la fonction compact('commande')
-        return view('commandes.detail', compact('commande'));
+        return view('user.detail', compact('commande'));
     }
 }

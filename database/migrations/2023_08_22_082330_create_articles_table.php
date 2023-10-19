@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('allergens', 100)->nullable();
             $table->string('image', 50);
             $table->float('price');
-            $table->boolean('highlighted');
             $table->timestamps();
 
             $table->foreignId('gamme_id')->constrained();

@@ -15,7 +15,7 @@ class PanierController extends Controller
 
 	public function show()
 	{
-		
+
 		return view("panier.show"); // resources\views\panier\show.blade.php
 	}
 
@@ -79,18 +79,6 @@ class PanierController extends Controller
 
 		$user = User::find(auth()->user()->id);
 
-
-		// si je viens de choisir un moment pour récuperer la pizza
-			// session(['commande' => $hour]);
-			// autre syntaxe : session()->put('adresseLivraison' => $adresseLivraison);
-
-		// si je viens de choisir une adresse de facturation => même principe 
-		if (($request->adresseFacturationId)) {
-			$adresseFacturationId = $request->input('adresseFacturationId');
-			$adresseFacturation = Commande::findOrFail($adresseFacturationId);
-			session(['adresseFacturation' => $adresseFacturation]);
-		}
-
 		return view("panier/validation", ['user' => $user]);
 	}
 
@@ -105,5 +93,17 @@ class PanierController extends Controller
 		return redirect()->route('home')->withMessage('success', 'Votre commande a été validée.');
 	}
 
+	public function calculateTotal()
+	{
+		$total = 0;
 
+		if (session()->has('panier')) {
+			foreach (session('panier') as $position => $article) {
+				// On incrémente le total général par le total de chaque produit du panier
+				$total += $article['price'] * $article['quantity'];
+			}
+		}
+
+		return $total;
+	}
 }

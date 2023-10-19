@@ -7,7 +7,7 @@
 @section('content')
     <!-- SECTION MODIF ARTICLE
                                                 ============================================================ -->
-    <div class="container-fluid pt-5" id="section_modif_article">
+    <div class="container-fluid pt-5 mt-5" id="section_modif_article">
         <!-- Titre section -->
         <h1 class="text-center">Modifier l'article {{ $article->name }}</h1>
         <div class="row justify-content-center">
@@ -16,7 +16,7 @@
 
                 <!-- CARD
                                                             ============================================================ -->
-                <div class="card border-secondary text-light mt-1">
+                <div class="text-light mt-1">
 
 
                     <!-- CARD HEADER
@@ -171,35 +171,12 @@
                                     </select>
                                 </div>
                             </div>
-                            
-                            <!-- SECTION highlighted
-                                                                        ============================================================ -->
-                            <div class="row mx-auto p-3">
-                                <h2>Mettre en avant le produit</h2>
-                                <div class="col">
-                                    <div>
-                                        <input required type="radio" id="oui" name="highlighted" value="1"
-                                            checked />
-                                        <label for="oui">
-                                            <h3>Oui</h3>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        <input type="radio" id="non" name="highlighted" value="0" />
-                                        <label for="non">
-                                            <h3>Non</h3>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
 
                             <!-- BOUTTON VALIDATION ENREGISTREMENT
                                                                         ============================================================ -->
                             <div class="row mt-4">
                                 <div class="col-md-12">
-                                    <button type="submit"
+                                    <button class="btn btn-danger" type="submit"
                                         class="btn col-12 border-secondary"><small>{{ __('Valider la modification') }}</small></button>
                                 </div>
                             </div>

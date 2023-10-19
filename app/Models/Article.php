@@ -21,7 +21,6 @@ class Article extends Model
         'allergens',
         'image',
         'price',
-        'highlighted'
     ];
 
     public function commandes()

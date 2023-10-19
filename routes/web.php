@@ -9,6 +9,7 @@ use App\Http\Controllers\GammeController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PolitiqueController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +80,9 @@ Route::get('panier/remove/{article}', [App\Http\Controllers\PanierController::cl
 Route::get('panier/empty', [App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');
 //« panier.empty » pour vider les produits du panier
 
+Route::post('validation/choixcreneau', [App\Http\Controllers\CommandeController::class, 'choixCreneau'])->name('choixCreneau');
+// 'validation_creneau' pour afficher le formulaire frais de port
+
 
 
 // *************** Les routes de la page Validation Panier *********** //
@@ -104,7 +108,6 @@ Route::post('cart/validation', [App\Http\Controllers\PanierController::class, 'v
 Route::get('/emptyAfterOrder', [App\Http\Controllers\PanierController::class, 'emptyAfterOrder'])->name('emptyAfterOrder');
 // pour vider le panier après validation de la commande
 
-
 // Récupération de la commande
 Route::get('/recuperer-commande', 'PanierController@recupererCommande');
 
@@ -129,8 +132,6 @@ Route::get('/politique', [App\Http\Controllers\HomeController::class, 'politique
 // ******************* Les routes ressources Articles **************** //
 Route::resource('/articles', ArticleController::class);
 
-// Route highlighted  --> GET
-Route::get('/highlighted', [App\Http\Controllers\HighlightedController::class, 'highlighted'])->name('highlighted');
 
 
 

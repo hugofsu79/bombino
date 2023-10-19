@@ -19,7 +19,6 @@ class HomeController extends Controller
         //je retourne la vue home en y injectant les posts
         return view('home', [
             'gammes' => $gammes
-            // 'highlighted' => $highlighted[0],  //[0]<- l'intérêt est de récuperer seulement la promo du moment
         ]);
     }
     public function politique()

@@ -31,7 +31,6 @@ class ArticleController extends Controller
         // on met en place un validateur avec les critères attendus
         $request->validate([
             'name' => 'required|string|min:3|max:30',
-            'highlighted' => 'required',
             'ingredients' => 'required|min:10|max:100',
             'allergens' => 'nullable|max:100',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -41,7 +40,6 @@ class ArticleController extends Controller
         // Création de l'article
         Article::create([
             'name'                  => $request->name,
-            'highlighted'           => $request->highlighted,
             'ingredients'           => $request->ingredients,
             'allergens'             => $request->allergens,
             'image'                 => uploadImage($request['image']),
@@ -60,12 +58,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $article->load(['highlighted' => function ($query) {
-            $query->whereDate('date_debut', '<=', date('Y-m-d'))
-                ->whereDate('date_fin', '>=', date('Y-m-d'));
-        }]);
-
-        return view('articles/show', ['article' => $article]);
+        //
     }
 
     /**
@@ -97,7 +90,6 @@ class ArticleController extends Controller
             'allergens' => 'nullable|max:100',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
-            'highlighted' => 'required',
             'gamme_id' => 'required',
         ]);
 
@@ -107,7 +99,6 @@ class ArticleController extends Controller
             'allergens' => $request->allergens,
             'image'                 => isset($request['image']) ? uploadImage($request['image']) : $article->image,
             'price'                  => $request->price,
-            'highlighted'                  => $request->highlighted,
             'gamme_id'                 => $request->gamme_id,
         ]);
         return redirect()->route('admin')->with('message', 'Article modifié avec succès');

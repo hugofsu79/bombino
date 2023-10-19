@@ -2,15 +2,13 @@
 
 @section('content')
     <script>
-        let nomsTableaux = ['articlesForm', 'gammeForm', 'articlesList', 'usersList'
+        let adminTableaux = ['articlesForm', 'gammeForm', 'articlesList', 'usersList'
 
-            // 'campaignsForm', 'rangesList',
-            //     'campaignsList', 'usersList'
         ]
 
         function showElement(elementId) {
 
-            nomsTableaux.forEach(element => { // nom du tableau 
+            adminTableaux.forEach(element => { // nom du tableau 
                 document.getElementById(element).style.display = 'none'
             });
 
@@ -29,10 +27,10 @@
     </script>
 
 
-    <h1 class="pb-5 text-center">Back-office</h1>
-    <div class="container">
+    <h1 class=" text-center pb-5 pt-5 mt-5">Back-office</h1>
+    <div class="rack container align-self-center">
 
-        <div class="arborescence row mb-3 justify-content-around text-center">
+        <div class="arborescence row justify-content-around text-center align-self-center">
             <div class="col">
                 <button onclick="showElement('articlesForm')">Créer un article</button>
             </div>
@@ -49,7 +47,7 @@
         </div>
 
         <!-- SECTION CREATION ARTICLE
-                                                                                                                                                                                                                                ============================================================ -->
+                                                                                                                                                                                                                                        ============================================================ -->
 
         <!-- Titre section -->
         <div class="container" style="display:none" id="articlesForm">
@@ -58,125 +56,103 @@
                 @csrf
                 <div id="section_cration_article">
                     <div class="container-fluid pt-5">
-                        <div class="container pl-5 pr-5">
-                            <div class="register_article row g-3">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="name"
-                                                class="col-form-label ms-1"><small>{{ __('Nom') }}</small></label>
-                                            <input id="name" type="text" placeholder="name"
-                                                class="form-control @error('name') is-invalid @enderror" name="name"
-                                                value="{{ old('Nom') }}" required>
+                        <div class="register_article row g-3">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="name"
+                                            class="col-form-label ms-1"><small>{{ __('Nom') }}</small></label>
+                                        <input id="name" type="text" placeholder="name"
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="{{ old('Nom') }}" required>
 
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col">
-                                            <input id="image" type="file"
-                                                class="form-control @error('image') is-invalid @enderror" name="image"
-                                                placeholder="image.jpg" value="{{ old('image') }}" autocomplete="image"
-                                                required>
-
-                                            @error('image')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
-                                    <div class="col-12">
-                                        <label for="ingredients"
-                                            class="col-form-label ms-1"><small>{{ __('Ingredients') }}</small></label>
+                                    <div class="col">
+                                        <input id="image" type="file"
+                                            class="form-control @error('image') is-invalid @enderror" name="image"
+                                            placeholder="image.jpg" value="{{ old('image') }}" autocomplete="image"
+                                            required>
 
-                                        <div class="col-md-12">
-                                            <input id="ingredients" type="text" placeholder="ingredients"
-                                                class="form-control @error('ingredients') is-invalid @enderror"
-                                                name="ingredients" value="{{ old('Ingredients') }}" required>
-
-                                            @error('ingredients')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
-                                        <div class="col-12">
-                                            <legend>Produit du mois</legend>
-
-                                            <div>
-                                                <input type="radio" id="oui" name="highlighted" value="1"
-                                                    checked />
-                                                <label for="oui">Oui</label>
-                                            </div>
-
-                                            <div>
-                                                <input type="radio" id="non" name="highlighted" value="0" />
-                                                <label for="non">Non</label>
-                                            </div>
-
-
-
-                                        </div>
-
-
-
-
-
-                                        <div class="col-md-12">
-                                            <input id="allergens" type="text" placeholder="allergens"
-                                                class="form-control @error('allergens') is-invalid @enderror"
-                                                name="allergens" value="{{ old('allergens') }}" required>
-
-                                            @error('allergens')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="price"
-                                            class="col-form-label ms-1"><small>{{ __('Prix') }}</small></label>
-
-                                        <div class="col-md-12">
-                                            <input id="price" type="number" placeholder="Prix"
-                                                class="form-control @error('price') is-invalid @enderror" name="price"
-                                                value="{{ old('Prix') }}" required>
-
-                                            @error('price')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <!-- Example single danger button -->
-
-
-                                    <div class="col-12">
-                                        <label for="gamme"
-                                            class="col-form-label ms-1"><small>{{ __('Gamme') }}</small></label>
-
-                                        <div class="col-md-12 text-center">
-                                            <select class="p-1" name="gamme_id" id="gamme_id">
-                                                <option value=""> Choisissez une gamme </option>
-                                                @foreach ($gammes as $gamme)
-                                                    <option value="{{ $gamme->id }}">{{ $gamme->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-danger"
-                                    id="button_validation_enregistrement"><small
-                                        class="text-light">{{ __('Enregistrer') }}</small>
-                                </button>
+                                <div class="col-12">
+                                    <label for="ingredients"
+                                        class="col-form-label ms-1"><small>{{ __('Ingredients') }}</small></label>
+
+                                    <div class="col-md-12">
+                                        <input id="ingredients" type="text" placeholder="ingredients"
+                                            class="form-control @error('ingredients') is-invalid @enderror"
+                                            name="ingredients" value="{{ old('Ingredients') }}" required>
+
+                                        @error('ingredients')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+
+                                        <label for="Allergène"
+                                            class="col-form-label ms-1"><small>{{ __('Allergène') }}</small></label>
+                                        <input id="allergens" type="text" placeholder="Allergène(s)"
+                                            class="form-control @error('allergens') is-invalid @enderror" name="allergens"
+                                            value="{{ old('Allergène(s)') }}" required>
+
+                                        @error('allergens')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+
+                                </div>
+                                <div class="col-12">
+                                    <label for="price"
+                                        class="col-form-label ms-1"><small>{{ __('Prix') }}</small></label>
+
+                                    <div class="col-md-12">
+                                        <input id="price" type="number" placeholder="Prix"
+                                            class="form-control @error('price') is-invalid @enderror" name="price"
+                                            value="{{ old('Prix') }}" required>
+
+                                        @error('price')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Example single danger button -->
+
+
+                                <div class="col-12">
+                                    <label for="gamme"
+                                        class="col-form-label ms-1"><small>{{ __('Gamme') }}</small></label>
+
+                                    <div class="col-md-12 text-center">
+                                        <select class="gamme_id p-1" name="gamme_id" id="gamme_id">
+                                            <option value=""> Choisissez une gamme </option>
+                                            @foreach ($gammes as $gamme)
+                                                <option value="{{ $gamme->id }}">{{ $gamme->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+                            <button type="submit" class="btn btn-danger" id="button_validation_enregistrement"><small
+                                    class="text-light">{{ __('Enregistrer') }}</small>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -189,12 +165,12 @@
                 <div class="row justify-content-center">
                     <div class="col">
                         <!-- TABLE
-                                                                                                                                                                                                                                                ============================================================ -->
+                                                                                                                                                                                                                                                        ============================================================ -->
                         <div>
                             <table class="table border-dark">
 
                                 <!-- TITRE DES COLONNES
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                                ============================================================ -->
                                 <thead>
                                     <tr class="table table-dark table-striped text-center">
                                         <!-- name -->
@@ -203,8 +179,7 @@
                                         <th scope="col">Gamme</th>
                                         <!-- ingredients -->
                                         <th scope="col">ingredients</th>
-                                        <!-- highlighted -->
-                                        <th scope="col">Produit du mois</th>
+
                                         <!-- allergies -->
                                         <th scope="col">Allergie</th>
                                         <!-- Image -->
@@ -219,13 +194,13 @@
                                 </thead>
 
                                 <!-- BOUCLE AFFICHAGE INFOS ARTICLES
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                                ============================================================ -->
 
 
                                 <tbody>
                                     @foreach ($articles as $article)
                                         <!-- ARTICLES
-                                                                                                                                                                                                                                                            ============================================================ -->
+                                                                                                                                                                                                                                                                    ============================================================ -->
                                         <tr class="table table-dark table-striped">
                                             <!-- name -->
                                             <td class="fs-5">{{ $article->name }}</td>
@@ -233,18 +208,6 @@
                                             <td class="fs-5">{{ $article->gamme->name }}</td>
                                             <!-- ingredients -->
                                             <td>{{ $article->ingredients }}</td>
-                                            <!-- highlighted -->
-                                            <td class="fs-5">
-                                                @if ($article->highlighted == 1)
-                                                    oui
-                                                @else
-                                                    non
-                                                @endif
-                                                {{-- <label class="switch">
-                                            <input type="checkbox">
-                                            <span class="slider round"></span>
-                                        </label> --}}
-                                            </td>
                                             <!-- ingredients -->
                                             <td>{{ $article->allergens }}</td>
                                             <!-- Image -->
@@ -285,7 +248,7 @@
             <h4 class="text-center mx-auto mt-5">Créer une gamme</h4>
             <div class="mx-auto text-center">
                 <form class="p-3" action="{{ route('gammes.store') }}" method="POST">@csrf
-                    <input type="text" name="name" placeholder="Gamme">
+                    <input class="gamme_creat rounded-start-pill" type="text" name="name" placeholder="Gamme">
 
                     <!-- Bouton de soumission -->
                     <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -414,7 +377,7 @@
                             <form method="post" action="{{ route('user.destroy', $user) }}">
                                 @csrf
                                 @method('delete')
-                                <input type="hidden" value="{{ $user->id }}" name="userId">
+                                {{-- <input type="hidden" value="{{ $user->id }}" name="userId"> --}}
                                 <button type="submit" class="btn btn-danger">Supprimer</button>
                             </form>
 
@@ -427,5 +390,5 @@
 
 
     <!-- Modification des horaires
-                                                                                                                                                                                                                                                ============================================================ -->
+                                                                                                                                                                                                                                                        ============================================================ -->
 @endsection
