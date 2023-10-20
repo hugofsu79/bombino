@@ -7,7 +7,7 @@
 
         function showElement(elementId) {
 
-            userTableaux.forEach(element => { // nom du tableau 
+            userTableaux.forEach(element => {
                 document.getElementById(element).style.display = 'none'
             });
 
@@ -93,12 +93,12 @@
 
 
                                     <!-- Section nom + prenom
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                                    ============================================================ -->
                                     <div class="d-flex justify-content-center gap-2">
 
 
                                         <!-- Mot de passe actuel
-                                                                                                                                                                                                                                                            ============================================================ -->
+                                                                                                                                                                                                                                                                        ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="password"
                                                 class="col-form-label ms-1"><small>{{ __('Mot de passe actuel') }}</small></label>
@@ -119,7 +119,7 @@
 
 
                                         <!-- Nouveau mot de passe
-                                                                                                                                                                                                                                                            ============================================================ -->
+                                                                                                                                                                                                                                                                        ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="password"
                                                 class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
@@ -143,7 +143,7 @@
 
 
                                         <!-- Confirmation mot de passe
-                                                                                                                                                                                                                                                            ============================================================ -->
+                                                                                                                                                                                                                                                                        ============================================================ -->
                                         <div class="col mb-3">
                                             <label for="password"
                                                 class="col-form-label ms-1"><small>{{ __('Nouveau mot de passe') }}</small></label>
@@ -164,7 +164,7 @@
                                     </div>
 
                                     <!-- Boutton validation modification
-                                                                                                                                                                                                                                                        ============================================================ -->
+                                                                                                                                                                                                                                                                    ============================================================ -->
 
                                     <div class="Mon_compte_creat"> <button type="submit"
                                             class="btn btn-primary"><small>{{ __('Modifier le mot de passe') }}</small></button>
@@ -213,7 +213,7 @@
 
 
         <!-- Boutton supression compte
-                                                                                                                                                                                                                                            ============================================================ -->
+                                                                                                                                                                                                                                                        ============================================================ -->
 
         <div id="supressionCompte">
             <h2 class="title_user pb-3 text-center">Supprimer mon compte </h2>
@@ -221,7 +221,7 @@
             <!-- Button trigger modal -->
 
             <!-- Bouton suppression compte
-                                                                ============================================================ -->
+                                                                            ============================================================ -->
             <form action="{{ route('users.destroy', $user) }}" method="post">
                 @csrf
                 @method('delete')

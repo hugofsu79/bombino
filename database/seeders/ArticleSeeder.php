@@ -14,7 +14,7 @@ class ArticleSeeder extends Seeder
     public function run(): void
     {
 
-        //ANTIPASTI
+        //ANTIPASTI x3
         Article::create([
             'name' => 'Coppa',
             'ingredients' => 'Tradition insulaire en fines bouchées savoureuses',
@@ -40,7 +40,7 @@ class ArticleSeeder extends Seeder
             'gamme_id' => 4
         ]);
 
-        //PIZZA NAPOLETANA
+        //PIZZA NAPOLETANA x13
         Article::create([
             'name' => 'Marinara',
             'ingredients' => 'Tomates , ail, basilic frais, huile d’olive, origan',
@@ -145,7 +145,7 @@ class ArticleSeeder extends Seeder
             'gamme_id' => 2
         ]);
 
-        //PANUOZZO
+        //PANUOZZO x2
         Article::create([
             'name' => 'Panuozzo di parma',
             'ingredients' => 'Roquette, coppa, tomates datterino, fior di latte, parmesan, huile d\'olive',
@@ -163,7 +163,7 @@ class ArticleSeeder extends Seeder
             'gamme_id' => 3
         ]);
 
-        //SOFT
+        //SOFT x5
         Article::create([
             'name' => 'Cola',
             'ingredients' => 'Sodas bio siciliens, eau de source naturelle de l\'Etna',
@@ -200,7 +200,7 @@ class ArticleSeeder extends Seeder
             'gamme_id' => 6
         ]);
 
-        //VINO & BIRRA
+        //VINO & BIRRA x 11
         Article::create([
             'name' => 'Caldora bianco',
             'ingredients' => 'Blanc sec fruité 75cl',
@@ -279,7 +279,7 @@ class ArticleSeeder extends Seeder
             'gamme_id' => 7
         ]);
 
-        //Dolce
+        //Dolce x2
         Article::create([
             'name' => 'Tiramissimo',
             'ingredients' => 'Œufs, café, mascarpone, biscuits, cacao.',
